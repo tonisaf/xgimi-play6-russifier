@@ -40,7 +40,7 @@ rootrun() {      # $1 = файл с командами, которые нужн�
 
 step "0. Проверка проектора и комплекта"
 $A connect "$DEVICE" > /dev/null || true
-[ "$($A get-state | tr -d '\r')" = device ] || fail "проектор не подключён по adb (разрешите отладку на экране проектора)"
+[ "$($A get-state | tr -d '\r')" = device ] || fail "проектор не подключён по adb (проверьте IP, что ADB включён в SystemUI Tuner и что компьютер с проектором в одной сети)"
 FINGERPRINT='XGIMI/Product_dayao/dragon_healthy:11/RP1A.200720.011/v1.7.116:user/dev-keys'
 [ "$($A shell getprop ro.build.fingerprint | tr -d '\r')" = "$FINGERPRINT" ] || fail "прошивка не v1.7.116 (Play 6): комплект проверен только на ней"
 [ "$($A shell getenforce | tr -d '\r')" = Permissive ] || fail "SELinux не в режиме Permissive: способ не подходит"
