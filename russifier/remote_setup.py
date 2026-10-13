@@ -8,6 +8,18 @@ PACKAGE = 'com.beam.remote'
 SERVICE = PACKAGE+'/'+PACKAGE+'.KeyBridge'
 RULE = {'pkg':PACKAGE,'start':200,'min':500,'max':800}
 
+DESIRED = BASE/'runs'/'remote-desired.json'
+
+def desired():
+    """True / False: what the user last chose for the module's service; None: nothing recorded."""
+    try: value = json.loads(DESIRED.read_text(encoding='utf-8')).get('enabled')
+    except (OSError, ValueError): return None
+    return value if isinstance(value, bool) else None
+
+def remember(enabled):
+    DESIRED.parent.mkdir(parents=True, exist_ok=True)
+    DESIRED.write_text(json.dumps({'enabled': bool(enabled)})+'\n', encoding='utf-8')
+
 def own(component):
     return component in (SERVICE, PACKAGE+'/.KeyBridge')
 
@@ -85,7 +97,7 @@ def install(installer, base=BASE, manifest=MANIFEST):
     old_global = installer.shell('settings get secure accessibility_enabled')
     record = {'device':identity, 'status':'prepared', 'oldHash':installed_hash(installer),
               'newHash':info['sha256'], 'enabledBefore':was_enabled,
-              'enabledAfter':was_enabled or old is None, 'globalBefore':old_global}
+              'enabledAfter':True if old is None else (was_enabled if desired() is None else desired()), 'globalBefore':old_global}
     if old: installer.command('pull', old, installer.logs/'remote-before.apk')
     record['policy']=snapshot_policy(installer,PACKAGE,RULE)
     save(installer.logs/'remote-setup.json', record)
@@ -105,6 +117,7 @@ def install(installer, base=BASE, manifest=MANIFEST):
         if actual == record['newHash']:
             record['status']='committed'
             enabled = record['enabledAfter']
+            remember(enabled)
         elif actual == record['oldHash']:
             record['status']='not-committed'
             enabled = record['enabledBefore']
@@ -121,7 +134,9 @@ def recover(installer, backup):
     record = json.loads((Path(backup)/'remote-setup.json').read_text(encoding='utf-8'))
     if check_device(installer) != record['device']: raise RuntimeError('Журнал относится к другому устройству')
     actual = installed_hash(installer)
-    if actual == record['newHash']: enabled = record['enabledAfter']
+    if actual == record['newHash']:
+        enabled = record['enabledAfter']
+        remember(enabled)
     elif actual == record['oldHash']:
         enabled = record['enabledBefore']
         previous_logs=installer.logs
@@ -149,6 +164,7 @@ def main():
             check_device(installer)
             if args.action == 'enable-remote' and not installed(installer): raise RuntimeError('Сначала установите модуль кнопок')
             set_enabled(installer, args.action == 'enable-remote')
+            remember(args.action == 'enable-remote')
             if args.action == 'disable-remote': installer.shell('am force-stop '+PACKAGE)
             else: verify_started(installer)
         return 0

@@ -40,6 +40,22 @@ def recover(installer,log_directory):
     save(log_directory/'boot-update.json',record)
     print('Незавершённое обновление обработано:',record['status'])
 
+def register_update(installer,info):
+    """Keep uninstallation possible after an update: the journal of the first installation (the only one holding the
+    original backups) now describes what is on the projector, and the previous values are kept in `updates`."""
+    pointer=BASE/'runs/latest-setup.txt'
+    if not pointer.exists(): return False
+    name=pointer.read_text(encoding='utf-8').strip()
+    if not re.fullmatch(r'[0-9]{8}-[0-9]{6}-[0-9a-f]{6}',name): return False
+    journal=BASE/'runs'/name/'setup.json'
+    if not journal.exists(): return False
+    record=json.loads(journal.read_text(encoding='utf-8'))
+    if record.get('status')!='installed' or record.get('device',{}).get('ro.serialno')!=installer.props['ro.serialno']: return False
+    record.setdefault('updates',[]).append({'log':installer.logs.name,'from':{key:record.get(key) for key in ('version','payloadHashes','generation','helperSha256')}})
+    record.update(version=MANIFEST['version'],payloadHashes=MANIFEST['files'],generation=info['directory'],helperSha256=info['helperSha256'])
+    save(journal,record)
+    return True
+
 def set_services(installer,components):
     if components: installer.shell('settings put secure enabled_accessibility_services '+q(':'.join(components)))
     else: installer.shell('settings delete secure enabled_accessibility_services')
@@ -85,6 +101,11 @@ def update(installer, bundle):
         installer.command('install','-r',helper)
         committed=True
         record['status']='committed';save(installer.logs/'boot-update.json',record)
+        try:
+            if not register_update(installer,info):
+                print('Журнал первой установки не найден на этом компьютере: удаление русификации возможно только с компьютера, где она ставилась.')
+        except (OSError,ValueError,KeyError) as error:
+            print('Не удалось дописать обновление в журнал первой установки:',error)
     except BaseException:
         if attempted and not committed:
             try:
@@ -121,6 +142,9 @@ def main():
     installer=None
     try:
         installer=Installer(args)
+        # pm path / getprop below run before preflight(), which is where the connection used to be made.
+        if ':' in installer.serial: installer.command('connect',installer.serial)
+        if installer.command('get-state').stdout.strip()!='device': raise RuntimeError('ADB недоступен или не авторизован')
         if args.recover: recover(installer,args.recover)
         else: update(installer,args.bundle)
         return 0

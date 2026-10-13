@@ -14,6 +14,7 @@ class FakeDevice:
         self.reboots = 0
         self.puts = 0
         self.after_boot_reads = 0
+        self.wish = True          # what the user chose for the module (remote_setup.desired()); None: nothing recorded
     def command(self, *args, **kwargs):
         if args[0] == 'reboot':
             self.reboots += 1
@@ -57,7 +58,7 @@ class Clock:
 
 def run(device, fn=f.finish):
     clock = Clock(device)
-    with patch('finish_setup.time.sleep', clock.sleep), patch('finish_setup.time.time', clock.time):
+    with patch('finish_setup.time.sleep', clock.sleep), patch('finish_setup.time.time', clock.time),          patch('finish_setup.remote_setup.desired', lambda: device.wish):
         return fn(device)
 
 class FinishTests(unittest.TestCase):
@@ -101,6 +102,30 @@ class FinishTests(unittest.TestCase):
         d = FakeDevice(restore_ok=False)
         with self.assertRaisesRegex(RuntimeError, 'не применил перевод'):
             run(d)
+
+    def test_a_module_the_user_switched_off_stays_off(self):
+        d = FakeDevice(helper=True, module=True)
+        d.wish = False
+        run(d)
+        self.assertIn(f.HELPER_SERVICE, d.entries)
+        self.assertNotIn(f.MODULE_SERVICE, d.entries)
+
+    def test_without_a_recorded_choice_the_current_state_of_the_module_is_kept(self):
+        off = FakeDevice(helper=True, module=True)
+        off.wish = None                                     # installed earlier, service off now: stays off
+        run(off)
+        self.assertNotIn(f.MODULE_SERVICE, off.entries)
+        on = FakeDevice(helper=True, module=True)
+        on.wish = None
+        on.entries.append(f.MODULE_SERVICE)                 # on now: switched on again after the reboot
+        run(on)
+        self.assertIn(f.MODULE_SERVICE, on.entries)
+
+    def test_only_a_disabled_module_means_nothing_to_do_and_no_reboot(self):
+        d = FakeDevice(helper=False, module=True)
+        d.wish = False
+        run(d)
+        self.assertEqual(d.reboots, 0)
 
 if __name__ == '__main__':
     unittest.main()

@@ -82,12 +82,23 @@ def wait_first_restore(r, timeout=120):
         time.sleep(3)
     raise RuntimeError('Helper не применил перевод после перезагрузки. Запустите «Дополнительно → Завершить настройку» ещё раз.')
 
+def module_wanted(r):
+    """The module's service is switched on only if the user wants it: the recorded choice (install / enable / disable
+    of the module) wins; with no record the current state is kept, so a module that was switched off stays off."""
+    choice = remote_setup.desired()
+    if choice is not None: return choice
+    return MODULE_SERVICE in services(r)
+
 def finish(r):
     helper, module = installed(r, HELPER), installed(r, MODULE)
     if not helper and not module:
         print('Ничего завершать: helper и модуль кнопок не установлены.')
         return
+    module = module and module_wanted(r)       # asked before the reboot: afterwards the system may have dropped the entry
     components = ([HELPER_SERVICE] if helper else [])+([MODULE_SERVICE] if module else [])
+    if not components:
+        print('Ничего включать: служба кнопок выключена вашим выбором, helper не установлен.')
+        return
     print('Перезагрузка проектора: после неё вступают в силу правила памяти XGIMI для установленных служб…', flush=True)
     reboot(r)
     print('Проектор загрузился. Включение служб автозапуска…', flush=True)

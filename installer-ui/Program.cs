@@ -112,7 +112,7 @@ namespace XgimiInstaller {
    var root=new TableLayoutPanel { Dock=DockStyle.Fill, Padding=new Padding(20,16,20,16), ColumnCount=1, RowCount=7 };
    Controls.Add(root);
    root.Controls.Add(new Label {Text="Русификация XGIMI Play 6",AutoSize=true,Font=new Font("Segoe UI",20,FontStyle.Bold),Margin=new Padding(0,0,0,0)},0,0);
-   root.Controls.Add(new Label {Text="Прошивка v1.7.116 · Android 11 · перевод 1.19.44 · установщик 1.16",AutoSize=true,ForeColor=Color.DimGray,Margin=new Padding(0,0,0,10)},0,1);
+   root.Controls.Add(new Label {Text="Прошивка v1.7.116 · Android 11 · перевод 1.19.45 · установщик 1.16",AutoSize=true,ForeColor=Color.DimGray,Margin=new Padding(0,0,0,10)},0,1);
 
    // connection
    var connection=new GroupBox {Text=" 1. Подключение ",Dock=DockStyle.Fill,Height=72,Padding=new Padding(12,6,12,8),Margin=new Padding(0,0,0,10)};

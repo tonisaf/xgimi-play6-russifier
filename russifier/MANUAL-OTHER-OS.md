@@ -75,7 +75,7 @@ done
 ```
 
 **4. Файлы «поколения» на проектор.** Имя каталога — поле `directory` в `boot-helper/build-info.json`
-(для версии 1.19.44: `/data/local/beam-russifier-boot/releases/1.19.44-3d09369163b99a3e`). Сначала положите файлы в обычную папку:
+(для версии 1.19.45: `/data/local/beam-russifier-boot/releases/1.19.45-3a892d950f7f1e77`). Сначала положите файлы в обычную папку:
 
 ```bash
 S=/data/local/tmp/gen-stage
@@ -92,7 +92,7 @@ $A push boot-helper/skin.sh  $S/skin.sh
 
 ```sh
 #!/system/bin/sh
-G=/data/local/beam-russifier-boot/releases/1.19.44-3d09369163b99a3e
+G=/data/local/beam-russifier-boot/releases/1.19.45-3a892d950f7f1e77
 S=/data/local/tmp/gen-stage
 test ! -e $G && mkdir -p ${G%/*} && rm -rf $G.new && mkdir $G.new || exit 1
 for f in $(ls $S); do
@@ -117,7 +117,7 @@ $A shell "setprop vendor.xgimi.system.debugserver ''; setprop vendor.xgimi.syste
 **5. Применить перевод** (подключает исправленные APK, оверлеи и скин; ~10 секунд). Путь — тот же каталог `G`:
 
 ```bash
-G=/data/local/beam-russifier-boot/releases/1.19.44-3d09369163b99a3e
+G=/data/local/beam-russifier-boot/releases/1.19.45-3a892d950f7f1e77
 $A shell "setprop vendor.xgimi.system.debug.cmd '/system/bin/sh $G/apply.sh'; setprop vendor.xgimi.system.debugserver 1"
 # через ~15 секунд:
 $A shell "cmd overlay list | grep -c '\[x\] com.beam.translation'"       # должно быть 21

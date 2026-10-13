@@ -152,7 +152,7 @@ def check_space(installer,info,sources):
 
 def identity_guard(installer,record):
     if record.get('version')!=MANIFEST['version'] or record.get('payloadHashes')!=MANIFEST['files']:
-        raise RuntimeError('Для восстановления нужен исходный комплект этой установки')
+        raise RuntimeError('Для удаления нужен комплект той версии, которая сейчас стоит на проекторе (после обновления это комплект последнего обновления)')
     if installer.shell('getprop ro.build.fingerprint')!=MANIFEST['fingerprint']:
         raise RuntimeError('Прошивка не поддерживается этим комплектом')
     policy=record['policy']

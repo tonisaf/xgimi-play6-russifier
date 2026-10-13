@@ -46,6 +46,9 @@ class RemoteTests(unittest.TestCase):
         for name in ('snapshot_policy','apply_policy','restore_policy'):
             item=patch('remote_setup.'+name,return_value={'package':PACKAGE})
             item.start();self.addCleanup(item.stop)
+        # The remembered choice must never leak into the real kit's runs folder.
+        self.desired_dir=tempfile.TemporaryDirectory();self.addCleanup(self.desired_dir.cleanup)
+        item=patch('remote_setup.DESIRED',Path(self.desired_dir.name)/'remote-desired.json');item.start();self.addCleanup(item.stop)
     def fixture(self,directory,**kwargs):
         root=Path(directory);(root/'payload').mkdir();(root/'logs').mkdir()
         apk=root/'payload/remote-buttons.apk';apk.write_bytes(b'new')

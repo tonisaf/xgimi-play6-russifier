@@ -493,13 +493,13 @@ class Installer:
         for item in MANIFEST.get('runtimePatches',[]):
             target=item['target']
             if target not in self.state.get('nativeMountsChanged',[]):continue
-            path=MANIFEST['originals'][target]['path'];before_hash=self.state['nativeRuntimeHashes'][target]
+            path=MANIFEST['originals'][target]['path'];before_hash=self.state['nativeRuntimeHashes'].get(target) or MANIFEST['originals'][target]['sha256']
             script += 'zyg=$(pidof zygote)\ncurrent=$(nsenter -t "$zyg" -m -- sha256sum '+q(path)+' | cut -d " " -f 1)\n'
             script += 'case "$current" in\n'+MANIFEST['files'][item['file']]+') nsenter -t "$zyg" -m -- umount '+q(path)+' ;;\n'+before_hash+') : ;;\n*) echo "Native APK changed independently"; exit 12 ;;\nesac\n'
             script += 'test "$(nsenter -t "$zyg" -m -- sha256sum '+q(path)+' | cut -d " " -f 1)" = '+q(before_hash)+'\n'
         self.root(script,'restore-data')
         for item in MANIFEST['overlays']:
-            previous = self.state['overlays'][item['package']]
+            previous = self.state['overlays'].get(item['package']) or {'path':None,'enabled':False}
             if previous['path']:
                 self.command('install','-r','-d',before/(item['package']+'.apk'))
                 self.enable_overlay(item,previous['enabled'])

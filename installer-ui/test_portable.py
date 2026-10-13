@@ -20,7 +20,8 @@ def validate_update(installer,bundle):
     assert helper.is_file() and sources
     calls.append(info['directory'])
 sys.argv=[str(kit/'launch.py'),'update-boot','--device','127.0.0.1:5555']
-with patch.object(boot_update,'Installer'),patch.object(boot_update,'update',validate_update):
+with patch.object(boot_update,'Installer') as updater,patch.object(boot_update,'update',validate_update):
+    updater.return_value.serial='127.0.0.1:5555';updater.return_value.command.return_value.stdout='device'
     try:runpy.run_path(str(kit/'launch.py'),run_name='__main__')
     except SystemExit as exc:assert exc.code==0,exc.code
 assert len(calls)==1
