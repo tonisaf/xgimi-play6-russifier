@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<overlay>
+  <item target="string/ambient_setting_dialog_title" value="@string/ambient_setting_dialog_title" />
+  <item target="string/ambient_setting_dialog_desc" value="@string/ambient_setting_dialog_desc" />
+  <item target="string/ambient_setting_how_to_use" value="@string/ambient_setting_how_to_use" />
+  <item target="string/ambient_setting_color_bt_title" value="@string/ambient_setting_color_bt_title" />
+  <item target="string/ambient_setting_effect_bt_title" value="@string/ambient_setting_effect_bt_title" />
+  <item target="string/ambient_setting_standard_bt_title" value="@string/ambient_setting_standard_bt_title" />
+  <item target="string/ambient_setting_alwayson_bt_title" value="@string/ambient_setting_alwayson_bt_title" />
+  <item target="string/ambient_setting_rhythm_bt_title" value="@string/ambient_setting_rhythm_bt_title" />
+  <item target="string/ambient_setting_standard_bt_desc" value="@string/ambient_setting_standard_bt_desc" />
+  <item target="string/ambient_setting_alwayson_bt_desc" value="@string/ambient_setting_alwayson_bt_desc" />
+  <item target="string/ambient_setting_rhythm_bt_desc" value="@string/ambient_setting_rhythm_bt_desc" />
+  <item target="string/ambient_slide_title" value="@string/ambient_slide_title" />
+  <item target="string/ambient_slide_enter_mode" value="@string/ambient_slide_enter_mode" />
+  <item target="string/ambient_slide_power_off" value="@string/ambient_slide_power_off" />
+  <item target="string/ambient_light_study_dialog_title" value="@string/ambient_light_study_dialog_title" />
+  <item target="string/ambient_light_study_dialog_desc" value="@string/ambient_light_study_dialog_desc" />
+  <item target="string/music_playing" value="@string/music_playing" />
+  <item target="string/music_pause" value="@string/music_pause" />
+  <item target="array/ambient_light_color_array" value="@array/ambient_light_color_array" />
+  <item target="array/ambient_slide_mode" value="@array/ambient_slide_mode" />
+</overlay>

@@ -1,0 +1,487 @@
+[
+  {
+    "key": "auto_turn",
+    "original": "自动",
+    "translation": "Авто"
+  },
+  {
+    "key": "boot_source_app",
+    "original": "我的应用",
+    "translation": "Мои приложения"
+  },
+  {
+    "key": "boot_source_app_tips",
+    "original": "开机后自动打开对应的应用",
+    "translation": "После включения автоматически запускается выбранное приложение"
+  },
+  {
+    "key": "color_range_setting_auto",
+    "original": "自动",
+    "translation": "Авто"
+  },
+  {
+    "key": "color_range_setting_full",
+    "original": "完整",
+    "translation": "Полный"
+  },
+  {
+    "key": "color_range_setting_limited",
+    "original": "限制",
+    "translation": "Ограниченный"
+  },
+  {
+    "key": "color_style_movie_text",
+    "original": "电影D65",
+    "translation": "Кино D65"
+  },
+  {
+    "key": "color_style_vivid_text",
+    "original": "标准（推荐）",
+    "translation": "Стандартный (рекомендуется)"
+  },
+  {
+    "key": "custom_equipment_name_text",
+    "original": "自定义",
+    "translation": "Пользовательский"
+  },
+  {
+    "key": "dress",
+    "original": "正装",
+    "translation": "Обычная установка"
+  },
+  {
+    "key": "fan_level_auto",
+    "original": "自动",
+    "translation": "Авто"
+  },
+  {
+    "key": "fan_level_manual",
+    "original": "手动",
+    "translation": "Вручную"
+  },
+  {
+    "key": "game_mode_select_auto_text",
+    "original": "自动",
+    "translation": "Авто"
+  },
+  {
+    "key": "game_mode_select_close_text",
+    "original": "关闭",
+    "translation": "Выкл."
+  },
+  {
+    "key": "game_mode_select_open_text",
+    "original": "打开",
+    "translation": "Вкл."
+  },
+  {
+    "key": "head_bluetooth_setting_text",
+    "original": "蓝牙与配件",
+    "translation": "Bluetooth"
+  },
+  {
+    "key": "head_general_setting_text",
+    "original": "通用",
+    "translation": "Общие"
+  },
+  {
+    "key": "head_image_setting_text",
+    "original": "亮度与显示",
+    "translation": "Изображение"
+  },
+  {
+    "key": "head_network_setting_text",
+    "original": "网络",
+    "translation": "Сеть"
+  },
+  {
+    "key": "head_picture_correction_text",
+    "original": "画面校正",
+    "translation": "Коррекция"
+  },
+  {
+    "key": "head_screen_setting_text",
+    "original": "画面校正",
+    "translation": "Коррекция"
+  },
+  {
+    "key": "head_signal_source_setting_text",
+    "original": "信号源",
+    "translation": "Источник"
+  },
+  {
+    "key": "head_sound_setting_text",
+    "original": "声音",
+    "translation": "Звук"
+  },
+  {
+    "key": "hoist",
+    "original": "吊装",
+    "translation": "Потолочная установка"
+  },
+  {
+    "key": "image_set_mode_ai_text",
+    "original": "AI画质",
+    "translation": "AI-изображение"
+  },
+  {
+    "key": "image_set_mode_auto_text",
+    "original": "自动",
+    "translation": "Авто"
+  },
+  {
+    "key": "image_set_mode_color_temp_cool_text",
+    "original": "冷",
+    "translation": "Холодная"
+  },
+  {
+    "key": "image_set_mode_color_temp_custom_text",
+    "original": "自定义",
+    "translation": "Пользовательская"
+  },
+  {
+    "key": "image_set_mode_color_temp_standard_text",
+    "original": "标准",
+    "translation": "Стандартная"
+  },
+  {
+    "key": "image_set_mode_color_temp_warm_text",
+    "original": "暖",
+    "translation": "Тёплая"
+  },
+  {
+    "key": "image_set_mode_custom_text",
+    "original": "自定义",
+    "translation": "Пользовательский"
+  },
+  {
+    "key": "image_set_mode_game_basic_text",
+    "original": "基础",
+    "translation": "Базовый"
+  },
+  {
+    "key": "image_set_mode_game_low_latency_text",
+    "original": "极速",
+    "translation": "Максимальная скорость"
+  },
+  {
+    "key": "image_set_mode_medium_text",
+    "original": "中",
+    "translation": "Средний"
+  },
+  {
+    "key": "image_set_mode_movies_text",
+    "original": "电影",
+    "translation": "Кино"
+  },
+  {
+    "key": "image_set_mode_off_text",
+    "original": "关",
+    "translation": "Выкл."
+  },
+  {
+    "key": "image_set_mode_office_text",
+    "original": "办公",
+    "translation": "Офис"
+  },
+  {
+    "key": "image_set_mode_performance_text",
+    "original": "性能",
+    "translation": "Производительность"
+  },
+  {
+    "key": "image_set_mode_sport_text",
+    "original": "运动",
+    "translation": "Спорт"
+  },
+  {
+    "key": "image_set_mode_strong_text",
+    "original": "强",
+    "translation": "Сильный"
+  },
+  {
+    "key": "image_set_mode_teleplay_page4_text",
+    "original": "电视",
+    "translation": "ТВ"
+  },
+  {
+    "key": "image_set_mode_weak_text",
+    "original": "弱",
+    "translation": "Слабый"
+  },
+  {
+    "key": "image_set_ratio_auto_text",
+    "original": "自动",
+    "translation": "Авто"
+  },
+  {
+    "key": "image_set_ratio_none_text",
+    "original": "原始比例",
+    "translation": "Исходные пропорции"
+  },
+  {
+    "key": "internal_speakers_subwoofer",
+    "original": "XGIMI Sound+低音炮",
+    "translation": "XGIMI Sound+ сабвуфер"
+  },
+  {
+    "key": "internal_woofer_bass_xgimi_sound",
+    "original": "XGIMI Sound+内部扬声器 (低音)",
+    "translation": "XGIMI Sound+ встроенный динамик (низкие частоты)"
+  },
+  {
+    "key": "led_bright_mode",
+    "original": "明亮",
+    "translation": "Яркий"
+  },
+  {
+    "key": "led_colorful_mode",
+    "original": "鲜艳",
+    "translation": "Насыщенный"
+  },
+  {
+    "key": "led_cool_tone_mode",
+    "original": "冷色",
+    "translation": "Холодные тона"
+  },
+  {
+    "key": "led_custom_mode",
+    "original": "自定义",
+    "translation": "Пользовательский"
+  },
+  {
+    "key": "led_energy_saving_mode",
+    "original": "节能",
+    "translation": "Эко"
+  },
+  {
+    "key": "led_eye_care_mode",
+    "original": "护眼",
+    "translation": "Защита глаз"
+  },
+  {
+    "key": "led_high_energy_mode",
+    "original": "高能",
+    "translation": "Высокая мощность"
+  },
+  {
+    "key": "led_movie_mode",
+    "original": "电影",
+    "translation": "Кино"
+  },
+  {
+    "key": "led_office_mode",
+    "original": "办公",
+    "translation": "Офис"
+  },
+  {
+    "key": "led_performance_mode",
+    "original": "性能",
+    "translation": "Производительность"
+  },
+  {
+    "key": "led_soft_mode",
+    "original": "柔和",
+    "translation": "Мягкий"
+  },
+  {
+    "key": "led_standard_mode",
+    "original": "标准",
+    "translation": "Стандартный"
+  },
+  {
+    "key": "nerwork_wifi_connected",
+    "original": "已连接",
+    "translation": "Подключено"
+  },
+  {
+    "key": "network_ap_status_close",
+    "original": "关闭",
+    "translation": "Выкл."
+  },
+  {
+    "key": "network_item_status_disconnect",
+    "original": "未连接",
+    "translation": "Не подключено"
+  },
+  {
+    "key": "network_set_way_auto",
+    "original": "自动",
+    "translation": "Авто"
+  },
+  {
+    "key": "network_set_way_hand",
+    "original": "手动",
+    "translation": "Вручную"
+  },
+  {
+    "key": "screen_waiting_time_0",
+    "original": "永不",
+    "translation": "Никогда"
+  },
+  {
+    "key": "screen_waiting_time_1",
+    "original": "1分钟",
+    "translation": "1 мин"
+  },
+  {
+    "key": "screen_waiting_time_10",
+    "original": "10分钟",
+    "translation": "10 мин"
+  },
+  {
+    "key": "screen_waiting_time_30",
+    "original": "30分钟",
+    "translation": "30 мин"
+  },
+  {
+    "key": "screen_waiting_time_5",
+    "original": "5分钟",
+    "translation": "5 мин"
+  },
+  {
+    "key": "screen_waiting_time_60",
+    "original": "1个小时",
+    "translation": "1 час"
+  },
+  {
+    "key": "signal_source_setting_boot_defeat",
+    "original": "默认",
+    "translation": "По умолчанию"
+  },
+  {
+    "key": "signal_source_setting_hdmi_version1_4",
+    "original": "兼容模式",
+    "translation": "Режим совместимости"
+  },
+  {
+    "key": "signal_source_setting_hdmi_version2_0",
+    "original": "增强模式",
+    "translation": "Расширенный режим"
+  },
+  {
+    "key": "sound_micro_phone_mode_karaoke_text",
+    "original": "K歌",
+    "translation": "Караоке"
+  },
+  {
+    "key": "sound_micro_phone_mode_meeting_text",
+    "original": "会议",
+    "translation": "Конференция"
+  },
+  {
+    "key": "sound_mode_ai_text",
+    "original": "AI音效",
+    "translation": "AI-звук"
+  },
+  {
+    "key": "sound_mode_game_text",
+    "original": "游戏",
+    "translation": "Игра"
+  },
+  {
+    "key": "sound_mode_karaoke_text",
+    "original": "K歌",
+    "translation": "Караоке"
+  },
+  {
+    "key": "sound_mode_movie_text",
+    "original": "观影",
+    "translation": "Просмотр"
+  },
+  {
+    "key": "sound_mode_music_text",
+    "original": "音乐",
+    "translation": "Музыка"
+  },
+  {
+    "key": "sound_mode_news_text",
+    "original": "新闻",
+    "translation": "Новости"
+  },
+  {
+    "key": "sound_mode_sports_text",
+    "original": "体育",
+    "translation": "Спорт"
+  },
+  {
+    "key": "sound_mode_standard_text",
+    "original": "标准",
+    "translation": "Стандартный"
+  },
+  {
+    "key": "sound_mode_vocal_text",
+    "original": "人声",
+    "translation": "Голос"
+  },
+  {
+    "key": "sound_out_auto",
+    "original": "自动",
+    "translation": "Авто"
+  },
+  {
+    "key": "sound_out_earc_v5_auto_text",
+    "original": "自动",
+    "translation": "Авто"
+  },
+  {
+    "key": "sound_out_earc_v5_close_text",
+    "original": "关",
+    "translation": "Выкл."
+  },
+  {
+    "key": "sound_set_input_audio_format_passthrough",
+    "original": "光纤/ARC-Passthrough",
+    "translation": "Оптика/ARC-Passthrough"
+  },
+  {
+    "key": "sound_set_input_audio_format_pcm",
+    "original": "光纤/ARC-PCM",
+    "translation": "Оптика/ARC-PCM"
+  },
+  {
+    "key": "sound_set_input_audio_format_raw",
+    "original": "光纤/ARC-AUTO",
+    "translation": "Оптика/ARC-AUTO"
+  },
+  {
+    "key": "sound_set_input_audio_speaker_network_speaker",
+    "original": "内部扬声器+XGIMI Sound",
+    "translation": "Встроенный динамик + XGIMI Sound"
+  },
+  {
+    "key": "sound_set_input_audio_speaker_sound_system",
+    "original": "内部扬声器+低音炮",
+    "translation": "Встроенный динамик + сабвуфер"
+  },
+  {
+    "key": "sound_set_input_audio_speaker_xgimi_sound_system",
+    "original": "内部扬声器+XGIMI Sound+低音炮",
+    "translation": "Встроенный динамик + XGIMI Sound + сабвуфер"
+  },
+  {
+    "key": "theme_auto_text",
+    "original": "自动",
+    "translation": "Авто"
+  },
+  {
+    "key": "theme_display_blue",
+    "original": "蓝色",
+    "translation": "Синяя"
+  },
+  {
+    "key": "voice_audio_bluetooth_text",
+    "original": "蓝牙",
+    "translation": "Bluetooth"
+  },
+  {
+    "key": "voice_audio_headset_text",
+    "original": "耳机",
+    "translation": "Наушники"
+  },
+  {
+    "key": "voice_internal_speaker_text",
+    "original": "内部扬声器",
+    "translation": "Встроенный динамик"
+  }
+]

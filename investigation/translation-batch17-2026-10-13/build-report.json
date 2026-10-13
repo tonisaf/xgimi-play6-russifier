@@ -1,0 +1,7 @@
+{
+  "version": "1.19.34",
+  "changes": {
+    "update_check": "Проверить",
+    "update_loading": "Проверка…"
+  }
+}

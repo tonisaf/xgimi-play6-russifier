@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+  <string name="focus_complete_ru">Фокусировка завершена. Удерживайте кнопку фокусировки для точной настройки</string>
+  <string name="ak_complete_ru">Коррекция изображения завершена. Нажмите @ для ручной коррекции</string>
+  <string name="af_camera_error" formatted="false">Коррекция не удалась. Измените расстояние до экрана и проверьте, не закрыта ли камера</string>
+  <string name="af_fail" formatted="false">Калибровка не удалась</string>
+  <string name="af_fail_too_far" formatted="false">Слишком далеко. Калибровка не удалась</string>
+  <string name="af_fail_too_near" formatted="false">Слишком близко. Калибровка не удалась</string>
+  <string name="af_global_focus_error" formatted="false">Не удалось запустить автофокусировку</string>
+  <string name="af_sucess" formatted="false">Калибровка выполнена</string>
+  <string name="aferror" formatted="false">Не удалось запустить камеру. Перезапустите проектор</string>
+  <string name="ai_location_curtain_adjustment" formatted="false">Нажмите для ручного выравнивания</string>
+  <string name="ai_location_curtain_alignment" formatted="false">Выравнивание завершено</string>
+  <string name="ai_location_curtain_alignment_doing" formatted="false">Определение положения экрана</string>
+  <string name="ai_location_curtain_auto_alignment" formatted="false">Уберите руку для автовыравнивания по экрану</string>
+  <string name="ai_location_curtain_found" formatted="false">Отодвиньте проектор, чтобы изображение выходило за края экрана: %1$d с</string>
+  <string name="ai_location_end_tips_1" formatted="false">Положение определено. Нажмите</string>
+  <string name="ai_location_end_tips_2" formatted="false">для ручной коррекции</string>
+  <string name="ai_location_failed" formatted="false">Не удалось определить положение стены</string>
+  <string name="ai_location_interrupt" formatted="false">Сканирование стены прервано</string>
+  <string name="ai_location_not_found" formatted="false">Сканирование завершено. Подходящее место для проекции не найдено</string>
+  <string name="ai_location_scan_tips_desc" formatted="false">Не перемещайте проектор во время сканирования</string>
+  <string name="ai_location_scan_tips_title" formatted="false">Сканирование стены…</string>
+  <string name="ak_adv_out_range_error" formatted="false">Обход препятствия слишком уменьшит изображение. Измените угол проекции</string>
+  <string name="ak_calibrete_content" formatted="false">Если автокоррекция работает неточно, попробуйте калибровку трапеции в настройках коррекции</string>
+  <string name="ak_calibrete_jmp" formatted="false">Калибровка</string>
+  <string name="ak_calibrete_ok" formatted="false">Всё хорошо</string>
+  <string name="ak_calibrete_title" formatted="false">Автокоррекция работает неточно?</string>
+  <string name="ak_device_init_error" formatted="false">Камера запускается. Повторите попытку позже</string>
+  <string name="ak_end_dialog_btn_next" formatted="false">Позже</string>
+  <string name="ak_end_dialog_btn_ok" formatted="false">Проверить условия проекции</string>
+  <string name="ak_end_dialog_desc_ak2" formatted="false">Проверьте наличие препятствий и экрана, чтобы подобрать настройки коррекции</string>
+  <string name="ak_end_dialog_desc_ak3" formatted="false">Проверьте наличие препятствий, экрана и цвет стены, чтобы подобрать настройки коррекции</string>
+  <string name="ak_end_dialog_title" formatted="false">Калибровка завершена</string>
+  <string name="ak_end_toast" formatted="false">Коррекция завершена. Нажмите [OK] для точной настройки</string>
+  <string name="ak_end_toast1" formatted="false">Коррекция завершена. Нажмите</string>
+  <string name="ak_end_toast2" formatted="false">для точной настройки</string>
+  <string name="ak_end_toast_ak_4_0" formatted="false">Настройка изображения завершена. Нажмите [OK] для ручной коррекции</string>
+  <string name="ak_end_toast_ak_4_0_1" formatted="false">Коррекция завершена. Нажмите</string>
+  <string name="ak_end_toast_ak_4_0_2" formatted="false">для ручной коррекции</string>
+  <string name="ak_end_toast_tips1" formatted="false">Изображение нечёткое? Нажмите</string>
+  <string name="ak_end_toast_tips2" formatted="false">для автофокусировки</string>
+  <string name="ak_not_support_21to9" formatted="false">В сверхшироком режиме доступна только ручная коррекция трапеции</string>
+  <string name="ak_not_support_imax" formatted="false">Коррекция на лету недоступна для источника IMAX</string>
+  <string name="ak_usr_cali_point_error" formatted="false">Калибровка не удалась. Измените расстояние до экрана и проверьте, не закрыта ли камера</string>
+  <string name="ak_usr_cali_success" formatted="false">Калибровка завершена</string>
+  <string name="auto_focus" formatted="false">Автофокусировка, подождите</string>
+  <string name="auto_focus_one" formatted="false">Автофокусировка, подождите.</string>
+  <string name="auto_focus_two" formatted="false">Автофокусировка, подождите..</string>
+  <string name="auto_focus_three" formatted="false">Автофокусировка, подождите…</string>
+  <string name="auto_keystone_angle_error" formatted="false">Коррекция не удалась. Измените положение или угол проектора</string>
+  <string name="auto_keystone_dialog_btn_calibrate" formatted="false">Калибровка</string>
+  <string name="auto_keystone_dialog_btn_manual_fine_tune" formatted="false">Ручная коррекция</string>
+  <string name="auto_keystone_dialog_btn_no_tip" formatted="false">Больше не показывать</string>
+  <string name="auto_keystone_dialog_btn_over_tip" formatted="false">Готово</string>
+  <string name="auto_keystone_dialog_content" formatted="false">Если автокоррекция работает неточно, попробуйте калибровку</string>
+  <string name="auto_keystone_dialog_title" formatted="false">Автокоррекция завершена. Доступна ручная настройка</string>
+  <string name="auto_keystone_error" formatted="false">Ошибка коррекции трапеции. Перезапустите проектор</string>
+  <string name="auto_keystone_frame_error" formatted="false">Экран или объектив закрыт. Проверьте и повторите попытку</string>
+  <string name="auto_keystone_init_error" formatted="false">Не удалось запустить коррекцию трапеции. Обратитесь в поддержку</string>
+  <string name="auto_keystone_into_str" formatted="false">Проектор выключается</string>
+  <string name="auto_keystone_large_angle" formatted="false">Большой угол проекции. Для лучшего качества направьте проектор прямо на экран</string>
+  <string name="auto_keystone_mutex_convex" formatted="false">Автокоррекция трапеции недоступна в текущем режиме</string>
+  <string name="auto_keystone_mutex_error" formatted="false">Автокоррекция трапеции недоступна в текущем режиме</string>
+  <string name="auto_keystone_select_gyro_calibrate_tip" formatted="false">Если после автокоррекции изображение повёрнуто, откалибруйте уровень гироскопа</string>
+  <string name="auto_keystone_select_gyro_calibrate_title" formatted="false">Калибровка гироскопа</string>
+  <string name="auto_keystone_select_keystone_calibrate_tip" formatted="false">Если после автокоррекции изображение не прямоугольное, откалибруйте трапецию</string>
+  <string name="auto_keystone_select_keystone_calibrate_title" formatted="false">Калибровка трапеции</string>
+  <string name="auto_keystone_select_title" formatted="false">Способ калибровки</string>
+  <string name="auto_keystone_wall_nonsupport" formatted="false">Автокоррекция трапеции недоступна для этой стены</string>
+  <string name="auto_keystone_window_btn_calibrate" formatted="false">Расширенная калибровка</string>
+  <string name="auto_keystone_window_content" formatted="false">Если результат неточный, попробуйте ручную коррекцию или расширенную калибровку</string>
+  <string name="auto_keystone_window_title" formatted="false">Автокоррекция завершена</string>
+  <string name="battery_exhausted_tips" formatted="false">Батарея разряжена. Выключение через %1$d с</string>
+  <string name="battery_low_power_10_des" formatted="false">Осталось 10%% заряда</string>
+  <string name="battery_low_power_30_des" formatted="false">Осталось 30%% заряда</string>
+  <string name="charger_battery_desc" formatted="false">Энергосбережение включено</string>
+  <string name="charger_battery_title" formatted="false">Подключена подставка с батареей</string>
+  <string name="charger_lower_battery" formatted="false">Низкий заряд батареи подставки</string>
+  <string name="charger_lower_battery_desc" formatted="false">Подключите адаптер питания</string>
+  <string name="charger_lower_power" formatted="false">Подключён внешний аккумулятор или сторонний адаптер</string>
+  <string name="charger_stand_desc" formatted="false">Меняйте источник питания без прерывания просмотра</string>
+  <string name="charger_stand_pairing" formatted="false">Сопряжение</string>
+  <string name="charger_stand_title" formatted="false">Подставка с батареей XGIMI</string>
+  <string name="charger_standard_adapter_title" formatted="false">Адаптер питания подключён</string>
+  <string name="charger_standard_desc_desc" formatted="false">Энергосбережение выключено</string>
+  <string name="charger_welcome_camping_assistant" formatted="false">Режим отдыха на природе</string>
+  <string name="charger_welcome_desc" formatted="false">· Смотрите фильмы дома и на природе\n· Меняйте источник питания без остановки просмотра\n· Умное энергосбережение продлевает работу</string>
+  <string name="charger_welcome_title" formatted="false">Подставка с батареей XGIMI</string>
+  <string name="power_adapter_battery_burn_on" formatted="false">Мощности адаптера недостаточно. Батарея будет расходоваться</string>
+  <string name="power_adapter_in_tip" formatted="false">Адаптер подключён. Зарядка началась</string>
+  <string name="power_adapter_out_tip" formatted="false">Питание отключено</string>
+  <string name="power_low_adapter_in_tip" formatted="false">Низкий заряд батареи</string>
+  <string name="power_low_adapter_in_tip_text" formatted="false">Подключите адаптер питания</string>
+  <string name="power_low_shutdown_text" formatted="false">Выключить сейчас</string>
+  <string name="power_low_shutdown_window_tip" formatted="false">Батарея почти разряжена. Выключение через %d с</string>
+  <string name="power_low_shutdown_window_tip_title" formatted="false">Низкий заряд. Выключение через %d с</string>
+  <string name="power_low_tip" formatted="false">Осталось 30% заряда</string>
+  <string name="power_off" formatted="false">Выключить</string>
+  <string name="power_sleep" formatted="false">Сон</string>
+  <string name="power_sleep_title" formatted="false">Режим сна расходует меньше энергии, позволяет быстро включить проектор и продолжать загрузку фильмов GMAX через приложение XGIMI</string>
+  <string name="power_sleep_title_downloading" formatted="false">Загружается фильм. Выберите режим сна, чтобы продолжить загрузку</string>
+  <string name="power_standby" formatted="false">Ожидание</string>
+  <string name="power_travel" formatted="false">Режим перевозки</string>
+  <string name="power_travel_tip" formatted="false">Без внешнего питания нажмите кнопку включения дважды. Это защищает от случайного включения при перевозке</string>
+  <string name="eco_mode_title" formatted="false">Экорежим включён</string>
+  <string name="eco_mode_exit_title" formatted="false">Экорежим выключен</string>
+  <string name="eco_mode_details_title" formatted="false">Экорежим</string>
+  <string name="eco_mode_button_settings" formatted="false">Включить экорежим</string>
+  <string name="eco_mode_desc" formatted="false">При использовании внешнего аккумулятора или неоригинального адаптера можно вручную включить экорежим для стабильной работы устройства. В этом режиме снижаются яркость и громкость</string>
+  <string name="eco_mode_desc1" formatted="false">Для стабильной работы устройства от внешнего аккумулятора или неоригинального адаптера экорежим снижает яркость и громкость</string>
+  <string name="eco_mode_desc2" formatted="false">При подключении оригинального адаптера экорежим автоматически выключается</string>
+  <string name="eco_mode_volume" formatted="false">Достигнута максимальная громкость в экорежиме</string>
+  <string name="inner_battery_desc" formatted="false">Включить экорежим</string>
+</resources>

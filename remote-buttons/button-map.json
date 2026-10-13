@@ -1,0 +1,43 @@
+{
+  "device": "XGIMI Play 6",
+  "firmware": "v1.7.116",
+  "evidence": "physical presses captured 2026-10-12; Vendor_000d_Product_3841.kl; runtime KeyEvent.keyCodeFromString",
+  "buttons": [
+    {
+      "position": "top-left",
+      "name": "Youku / CIBN",
+      "scan": "000c0076",
+      "linuxKey": 240,
+      "androidSymbol": "VIDEO0",
+      "androidKeyCode": 2118,
+      "stockPackage": "com.cibn.tv"
+    },
+    {
+      "position": "top-right",
+      "name": "Tencent TV",
+      "scan": "000c0079",
+      "linuxKey": 230,
+      "androidSymbol": "VIDEO1",
+      "androidKeyCode": 2119,
+      "stockPackage": "com.ktcp.tvvideo"
+    },
+    {
+      "position": "bottom-left",
+      "name": "iQIYI",
+      "scan": "000c01a7",
+      "linuxKey": 235,
+      "androidSymbol": "VIDEO2",
+      "androidKeyCode": 2120,
+      "stockPackage": "com.gitvjimi.video"
+    },
+    {
+      "position": "bottom-right",
+      "name": "Mango TV",
+      "scan": "000c01b4",
+      "linuxKey": 144,
+      "androidSymbol": "VIDEO3",
+      "androidKeyCode": 2121,
+      "stockPackage": "com.hunantv.license"
+    }
+  ]
+}

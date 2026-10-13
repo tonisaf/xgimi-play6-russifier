@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+  <string name="ambient_setting_dialog_title">Подсветка колонки</string>
+  <string name="ambient_setting_dialog_desc">Цвет и эффекты подсветки в режиме колонки</string>
+  <string name="ambient_setting_how_to_use">Как пользоваться колонкой</string>
+  <string name="ambient_setting_color_bt_title">Цвет подсветки</string>
+  <string name="ambient_setting_effect_bt_title">Эффект подсветки</string>
+  <string name="ambient_setting_standard_bt_title">Стандартный</string>
+  <string name="ambient_setting_alwayson_bt_title">Постоянный</string>
+  <string name="ambient_setting_rhythm_bt_title">В ритм музыки</string>
+  <string name="ambient_setting_standard_bt_desc">Без музыки подсветка горит постоянно, при воспроизведении пульсирует в ритм музыки</string>
+  <string name="ambient_setting_alwayson_bt_desc">Подсветка горит постоянно независимо от воспроизведения музыки</string>
+  <string name="ambient_setting_rhythm_bt_desc">Без музыки подсветка плавно пульсирует, при воспроизведении следует ритму музыки</string>
+  <string name="ambient_slide_title">При складывании</string>
+  <string name="ambient_slide_enter_mode">При складывании перейти в режим колонки</string>
+  <string name="ambient_slide_power_off">При складывании выключить проектор</string>
+  <string name="ambient_light_study_dialog_title">Как переключать цвет подсветки</string>
+  <string name="ambient_light_study_dialog_desc">В режиме колонки нажимайте кнопку быстрого доступа, чтобы переключать цвет и выключать подсветку</string>
+  <string name="music_playing">Музыка играет</string>
+  <string name="music_pause">Музыка не играет</string>
+  <string-array name="ambient_light_color_array">
+    <item>Оранжевый</item>
+    <item>Синий</item>
+    <item>Жёлтый</item>
+    <item>Зелёный</item>
+    <item>Розовый</item>
+    <item>Фиолетовый</item>
+    <item>Разноцветный</item>
+    <item>Выкл.</item>
+  </string-array>
+  <string-array name="ambient_slide_mode">
+    <item>Выключение</item>
+    <item>Режим колонки</item>
+  </string-array>
+</resources>

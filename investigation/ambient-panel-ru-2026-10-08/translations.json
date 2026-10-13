@@ -1,0 +1,38 @@
+{
+  "strings": {
+    "ambient_setting_dialog_title": "Подсветка колонки",
+    "ambient_setting_dialog_desc": "Цвет и эффекты подсветки в режиме колонки",
+    "ambient_setting_how_to_use": "Как пользоваться колонкой",
+    "ambient_setting_color_bt_title": "Цвет подсветки",
+    "ambient_setting_effect_bt_title": "Эффект подсветки",
+    "ambient_setting_standard_bt_title": "Стандартный",
+    "ambient_setting_alwayson_bt_title": "Постоянный",
+    "ambient_setting_rhythm_bt_title": "В ритм музыки",
+    "ambient_setting_standard_bt_desc": "Без музыки подсветка горит постоянно, при воспроизведении пульсирует в ритм музыки",
+    "ambient_setting_alwayson_bt_desc": "Подсветка горит постоянно независимо от воспроизведения музыки",
+    "ambient_setting_rhythm_bt_desc": "Без музыки подсветка плавно пульсирует, при воспроизведении следует ритму музыки",
+    "ambient_slide_title": "При складывании",
+    "ambient_slide_enter_mode": "При складывании перейти в режим колонки",
+    "ambient_slide_power_off": "При складывании выключить проектор",
+    "ambient_light_study_dialog_title": "Как переключать цвет подсветки",
+    "ambient_light_study_dialog_desc": "В режиме колонки нажимайте кнопку быстрого доступа, чтобы переключать цвет и выключать подсветку",
+    "music_playing": "Музыка играет",
+    "music_pause": "Музыка не играет"
+  },
+  "arrays": {
+    "ambient_light_color_array": [
+      "Оранжевый",
+      "Синий",
+      "Жёлтый",
+      "Зелёный",
+      "Розовый",
+      "Фиолетовый",
+      "Разноцветный",
+      "Выкл."
+    ],
+    "ambient_slide_mode": [
+      "Выключение",
+      "Режим колонки"
+    ]
+  }
+}

@@ -1,0 +1,727 @@
+[
+  {
+    "key": "auto_turn",
+    "original": "自动",
+    "translation": "Авто"
+  },
+  {
+    "key": "auto_vertical_turn_tip",
+    "original": "根据设备放置方向，自动转换为正装或吊装模式",
+    "translation": "В зависимости от положения устройства автоматически выбирается режим «на столе» или «на потолке»"
+  },
+  {
+    "key": "autoupdateopen",
+    "original": "开启后将自动下载更新，并提示您安装最新的系统",
+    "translation": "После включения обновления будут загружаться автоматически, и вам предложат установить последнюю версию системы"
+  },
+  {
+    "key": "back_txt",
+    "original": "返回",
+    "translation": "Назад"
+  },
+  {
+    "key": "bluetooth_scan_device_name_tips",
+    "original": "当前设备可被发现为“%s”，可将蓝牙或 Wi-Fi设备添加至我的设备",
+    "translation": "Это устройство видно как «%s»; Bluetooth- и Wi-Fi-устройства можно добавить в «Мои устройства»"
+  },
+  {
+    "key": "boot_auto_key_stone_title",
+    "original": "设备每次开机时会自动进行画面校正",
+    "translation": "При каждом включении проектор автоматически корректирует изображение"
+  },
+  {
+    "key": "boot_source_app",
+    "original": "我的应用",
+    "translation": "Мои приложения"
+  },
+  {
+    "key": "boot_source_app_tips",
+    "original": "开机后自动打开对应的应用",
+    "translation": "После включения автоматически запускается выбранное приложение"
+  },
+  {
+    "key": "color_range_setting_auto",
+    "original": "自动",
+    "translation": "Авто"
+  },
+  {
+    "key": "color_range_setting_auto_tops",
+    "original": "将投影设备显示的色彩范围与信号源相匹配",
+    "translation": "Подбирает диапазон цвета проектора под источник сигнала"
+  },
+  {
+    "key": "color_range_setting_full",
+    "original": "完整",
+    "translation": "Полный"
+  },
+  {
+    "key": "color_range_setting_limited",
+    "original": "限制",
+    "translation": "Ограниченный"
+  },
+  {
+    "key": "color_range_setting_message_page3",
+    "original": "将投影显示的色彩范围与信号源相匹配",
+    "translation": "Подбирает диапазон цвета проекции под источник сигнала"
+  },
+  {
+    "key": "color_style_movie_text",
+    "original": "电影D65",
+    "translation": "Кино D65"
+  },
+  {
+    "key": "color_style_vivid_text",
+    "original": "标准（推荐）",
+    "translation": "Стандартный (рекомендуется)"
+  },
+  {
+    "key": "custom_equipment_name_text",
+    "original": "自定义",
+    "translation": "Пользовательский"
+  },
+  {
+    "key": "data_restore_delete_tips",
+    "original": "将删除所有设置数据、本地文件和已安装应用",
+    "translation": "Будут удалены все настройки, локальные файлы и установленные приложения"
+  },
+  {
+    "key": "data_restore_keep_tips",
+    "original": "将删除所有设置数据，同时保留本地文件和已安装应用",
+    "translation": "Будут удалены все настройки, при этом локальные файлы и установленные приложения сохранятся"
+  },
+  {
+    "key": "digital_displacement",
+    "original": "数码位移",
+    "translation": "Сдвиг"
+  },
+  {
+    "key": "digital_zoom_txt",
+    "original": "数码变焦",
+    "translation": "Масштаб"
+  },
+  {
+    "key": "dress",
+    "original": "正装",
+    "translation": "Обычная установка"
+  },
+  {
+    "key": "eco_mode_tips",
+    "original": "降低亮度和听觉效果，以获得更长的续航时间，推荐接入极米电池支架、充电宝时使用",
+    "translation": "Снижает яркость и громкость ради большей автономности; рекомендуется при подключении батарейной подставки XGIMI или повербанка"
+  },
+  {
+    "key": "eye_project_tips",
+    "original": "检测到镜头前有人时，降低亮度，避免人眼刺激",
+    "translation": "При обнаружении человека перед объективом яркость снижается, чтобы не раздражать глаза"
+  },
+  {
+    "key": "fan_level_auto",
+    "original": "自动",
+    "translation": "Авто"
+  },
+  {
+    "key": "fan_level_manual",
+    "original": "手动",
+    "translation": "Вручную"
+  },
+  {
+    "key": "focus_tab_tips",
+    "original": "当画面模糊时，通过对焦调整清晰度",
+    "translation": "Если изображение размыто, настройте чёткость фокусировкой"
+  },
+  {
+    "key": "game_mode_default_basic_txt",
+    "original": "降低画面延迟，同时保证画面分辨率",
+    "translation": "Снижает задержку изображения при сохранении разрешения"
+  },
+  {
+    "key": "game_mode_low_latency_txt",
+    "original": "画面延迟更低，但不支持“画面校正”",
+    "translation": "Задержка изображения ниже, но «Коррекция изображения» недоступна"
+  },
+  {
+    "key": "game_mode_select_auto_text",
+    "original": "自动",
+    "translation": "Авто"
+  },
+  {
+    "key": "game_mode_select_close_text",
+    "original": "关闭",
+    "translation": "Выкл."
+  },
+  {
+    "key": "game_mode_select_open_text",
+    "original": "打开",
+    "translation": "Вкл."
+  },
+  {
+    "key": "game_mode_select_tips",
+    "original": "选择“自动”，将自动识别游戏设备并切换至游戏模式; 选择“打开”保持游戏模式常开; 选择“关闭”保持游戏模式常关",
+    "translation": "«Авто»: игровое устройство определяется автоматически и включается игровой режим; «Вкл.»: игровой режим всегда включён; «Выкл.»: игровой режим всегда выключен"
+  },
+  {
+    "key": "game_mode_state_tips",
+    "original": "降低延迟提升游戏体验，提供基础、极速两种模式",
+    "translation": "Меньшая задержка улучшает игру; два режима: базовый и максимальной скорости"
+  },
+  {
+    "key": "general_set_device_auto_startup_tip",
+    "original": "HDMI连接的设备可控制投影开关机",
+    "translation": "Устройства, подключённые по HDMI, могут включать и выключать проектор"
+  },
+  {
+    "key": "general_set_device_control_cec_tip",
+    "original": "投影可控制HDMI连接的设备，关闭后，音频ARC输出将不可用",
+    "translation": "Проектор может управлять подключёнными по HDMI устройствами; при выключении аудиовыход ARC будет недоступен"
+  },
+  {
+    "key": "head_bluetooth_setting_text",
+    "original": "蓝牙与配件",
+    "translation": "Bluetooth"
+  },
+  {
+    "key": "head_general_setting_text",
+    "original": "通用",
+    "translation": "Общие"
+  },
+  {
+    "key": "head_image_setting_text",
+    "original": "亮度与显示",
+    "translation": "Изображение"
+  },
+  {
+    "key": "head_network_setting_text",
+    "original": "网络",
+    "translation": "Сеть"
+  },
+  {
+    "key": "head_picture_correction_text",
+    "original": "画面校正",
+    "translation": "Коррекция"
+  },
+  {
+    "key": "head_screen_setting_text",
+    "original": "画面校正",
+    "translation": "Коррекция"
+  },
+  {
+    "key": "head_signal_source_setting_text",
+    "original": "信号源",
+    "translation": "Источник"
+  },
+  {
+    "key": "head_sound_setting_text",
+    "original": "声音",
+    "translation": "Звук"
+  },
+  {
+    "key": "hoist",
+    "original": "吊装",
+    "translation": "Потолочная установка"
+  },
+  {
+    "key": "image_mode_state_tips",
+    "original": "根据观看内容选择模式，自定义色彩空间、运动补偿等",
+    "translation": "Выберите режим по содержимому, настройте цветовое пространство, компенсацию движения и другое"
+  },
+  {
+    "key": "image_set_mode_ai_text",
+    "original": "AI画质",
+    "translation": "AI-изображение"
+  },
+  {
+    "key": "image_set_mode_auto_text",
+    "original": "自动",
+    "translation": "Авто"
+  },
+  {
+    "key": "image_set_mode_bright_text",
+    "original": "亮度",
+    "translation": "Яркость"
+  },
+  {
+    "key": "image_set_mode_color_temp_cool_text",
+    "original": "冷",
+    "translation": "Холодная"
+  },
+  {
+    "key": "image_set_mode_color_temp_custom_text",
+    "original": "自定义",
+    "translation": "Пользовательская"
+  },
+  {
+    "key": "image_set_mode_color_temp_standard_text",
+    "original": "标准",
+    "translation": "Стандартная"
+  },
+  {
+    "key": "image_set_mode_color_temp_warm_text",
+    "original": "暖",
+    "translation": "Тёплая"
+  },
+  {
+    "key": "image_set_mode_constrast_ratio_text",
+    "original": "对比度",
+    "translation": "Контрастность"
+  },
+  {
+    "key": "image_set_mode_custom_text",
+    "original": "自定义",
+    "translation": "Пользовательский"
+  },
+  {
+    "key": "image_set_mode_game_basic_text",
+    "original": "基础",
+    "translation": "Базовый"
+  },
+  {
+    "key": "image_set_mode_game_low_latency_text",
+    "original": "极速",
+    "translation": "Максимальная скорость"
+  },
+  {
+    "key": "image_set_mode_medium_text",
+    "original": "中",
+    "translation": "Средний"
+  },
+  {
+    "key": "image_set_mode_movies_text",
+    "original": "电影",
+    "translation": "Кино"
+  },
+  {
+    "key": "image_set_mode_off_text",
+    "original": "关",
+    "translation": "Выкл."
+  },
+  {
+    "key": "image_set_mode_office_text",
+    "original": "办公",
+    "translation": "Офис"
+  },
+  {
+    "key": "image_set_mode_performance_text",
+    "original": "性能",
+    "translation": "Производительность"
+  },
+  {
+    "key": "image_set_mode_saturation_text",
+    "original": "饱和度",
+    "translation": "Насыщенность"
+  },
+  {
+    "key": "image_set_mode_sharpness_text",
+    "original": "锐度",
+    "translation": "Резкость"
+  },
+  {
+    "key": "image_set_mode_sport_text",
+    "original": "运动",
+    "translation": "Спорт"
+  },
+  {
+    "key": "image_set_mode_strong_text",
+    "original": "强",
+    "translation": "Сильный"
+  },
+  {
+    "key": "image_set_mode_teleplay_page4_text",
+    "original": "电视",
+    "translation": "ТВ"
+  },
+  {
+    "key": "image_set_mode_weak_text",
+    "original": "弱",
+    "translation": "Слабый"
+  },
+  {
+    "key": "image_set_ratio_auto_text",
+    "original": "自动",
+    "translation": "Авто"
+  },
+  {
+    "key": "image_set_ratio_none_text",
+    "original": "原始比例",
+    "translation": "Исходные пропорции"
+  },
+  {
+    "key": "internal_speakers_subwoofer",
+    "original": "XGIMI Sound+低音炮",
+    "translation": "XGIMI Sound+ сабвуфер"
+  },
+  {
+    "key": "internal_woofer_bass_xgimi_sound",
+    "original": "XGIMI Sound+内部扬声器 (低音)",
+    "translation": "XGIMI Sound+ встроенный динамик (низкие частоты)"
+  },
+  {
+    "key": "keystone_for_990c_remote",
+    "original": "长按查看更多功能",
+    "translation": "Удерживайте для меню"
+  },
+  {
+    "key": "led_bright_mode",
+    "original": "明亮",
+    "translation": "Яркий"
+  },
+  {
+    "key": "led_colorful_mode",
+    "original": "鲜艳",
+    "translation": "Насыщенный"
+  },
+  {
+    "key": "led_cool_tone_mode",
+    "original": "冷色",
+    "translation": "Холодные тона"
+  },
+  {
+    "key": "led_custom_mode",
+    "original": "自定义",
+    "translation": "Пользовательский"
+  },
+  {
+    "key": "led_energy_saving_mode",
+    "original": "节能",
+    "translation": "Эко"
+  },
+  {
+    "key": "led_eye_care_mode",
+    "original": "护眼",
+    "translation": "Защита глаз"
+  },
+  {
+    "key": "led_high_energy_mode",
+    "original": "高能",
+    "translation": "Высокая мощность"
+  },
+  {
+    "key": "led_movie_mode",
+    "original": "电影",
+    "translation": "Кино"
+  },
+  {
+    "key": "led_office_mode",
+    "original": "办公",
+    "translation": "Офис"
+  },
+  {
+    "key": "led_performance_mode",
+    "original": "性能",
+    "translation": "Производительность"
+  },
+  {
+    "key": "led_soft_mode",
+    "original": "柔和",
+    "translation": "Мягкий"
+  },
+  {
+    "key": "led_standard_mode",
+    "original": "标准",
+    "translation": "Стандартный"
+  },
+  {
+    "key": "location_tips",
+    "original": "将用于获取所在地天气、出行等服务信息",
+    "translation": "Используется для получения погоды, сведений о поездках и других данных для вашего местоположения"
+  },
+  {
+    "key": "nerwork_wifi_connected",
+    "original": "已连接",
+    "translation": "Подключено"
+  },
+  {
+    "key": "network_ap_status_close",
+    "original": "关闭",
+    "translation": "Выкл."
+  },
+  {
+    "key": "network_item_status_disconnect",
+    "original": "未连接",
+    "translation": "Не подключено"
+  },
+  {
+    "key": "network_set_way_auto",
+    "original": "自动",
+    "translation": "Авто"
+  },
+  {
+    "key": "network_set_way_hand",
+    "original": "手动",
+    "translation": "Вручную"
+  },
+  {
+    "key": "personal_recommend_tips",
+    "original": "根据观影记录进行智能化内容推荐；关闭后，将根据全网热度展示内容",
+    "translation": "Рекомендации подбираются умно по истории просмотров; если выключить, показывается то, что популярно в сети"
+  },
+  {
+    "key": "projection_settings_tips",
+    "original": "选择设备投影方向，以调节画面翻转",
+    "translation": "Выберите направление проекции устройства, чтобы подстроить переворот изображения"
+  },
+  {
+    "key": "rear_project_tips",
+    "original": "观看者和投影仪位于画面两侧",
+    "translation": "Зритель и проектор находятся по разные стороны изображения"
+  },
+  {
+    "key": "reset_key_stone_txt",
+    "original": "恢复画面形状至校正前初始状态",
+    "translation": "Возвращает форму изображения к исходному состоянию до коррекции"
+  },
+  {
+    "key": "screen_waiting_time_0",
+    "original": "永不",
+    "translation": "Никогда"
+  },
+  {
+    "key": "screen_waiting_time_1",
+    "original": "1分钟",
+    "translation": "1 мин"
+  },
+  {
+    "key": "screen_waiting_time_10",
+    "original": "10分钟",
+    "translation": "10 мин"
+  },
+  {
+    "key": "screen_waiting_time_30",
+    "original": "30分钟",
+    "translation": "30 мин"
+  },
+  {
+    "key": "screen_waiting_time_5",
+    "original": "5分钟",
+    "translation": "5 мин"
+  },
+  {
+    "key": "screen_waiting_time_60",
+    "original": "1个小时",
+    "translation": "1 час"
+  },
+  {
+    "key": "set_more_bluetooth_found_tips",
+    "original": "关闭后已配对手机无法再连接，其他设备不受影响",
+    "translation": "Если выключено, уже сопряжённые телефоны не смогут подключиться; другие устройства не затрагиваются"
+  },
+  {
+    "key": "set_more_bluetooth_title",
+    "original": "开启后，投影音量将与蓝牙设备音量始终保持同步，可能会导致音量无法调节。",
+    "translation": "Если включено, громкость проектора всегда синхронизирована с громкостью Bluetooth-устройства, из-за чего регулировка громкости может не работать."
+  },
+  {
+    "key": "signal_boot_source_info_tips",
+    "original": "如「HDMI控制投影」已开启并接收到CEC开机信号时，优先进入对应HDMI通道，此时「开机源」设置将不生效",
+    "translation": "Если включено «Управление проектором по HDMI» и получен сигнал включения по CEC, сначала открывается соответствующий вход HDMI, а настройка «Источник при включении» не действует"
+  },
+  {
+    "key": "signal_compatible_tips",
+    "original": "优先考虑与连接设备的兼容性",
+    "translation": "Приоритет — совместимость с подключённым устройством"
+  },
+  {
+    "key": "signal_enhance_tips",
+    "original": "HDMI 2.0 支持全色彩范围的 4K 60Hz",
+    "translation": "HDMI 2.0 поддерживает 4K 60 Гц с полным цветовым диапазоном"
+  },
+  {
+    "key": "signal_source_setting_boot_defeat",
+    "original": "默认",
+    "translation": "По умолчанию"
+  },
+  {
+    "key": "signal_source_setting_hdmi_version1_4",
+    "original": "兼容模式",
+    "translation": "Режим совместимости"
+  },
+  {
+    "key": "signal_source_setting_hdmi_version2_0",
+    "original": "增强模式",
+    "translation": "Расширенный режим"
+  },
+  {
+    "key": "smart_auto_focus_title",
+    "original": "投影仪移动时自动对焦，保持画面清晰",
+    "translation": "При перемещении проектора автоматически наводит фокус, сохраняя изображение чётким"
+  },
+  {
+    "key": "sound_auto_switch_tips",
+    "original": "当声音输出设备接入后，自动切换为对应输出。关闭后，可手动切换声音输出",
+    "translation": "При подключении устройства вывода звука оно выбирается автоматически. Если выключить, выход звука выбирается вручную"
+  },
+  {
+    "key": "sound_micro_phone_mode_karaoke_text",
+    "original": "K歌",
+    "translation": "Караоке"
+  },
+  {
+    "key": "sound_micro_phone_mode_karaoke_tips",
+    "original": "优化K歌音效，麦克风语音键可用",
+    "translation": "Оптимизирует звук для караоке; кнопка голоса микрофона доступна"
+  },
+  {
+    "key": "sound_micro_phone_mode_meeting_text",
+    "original": "会议",
+    "translation": "Конференция"
+  },
+  {
+    "key": "sound_micro_phone_mode_meeting_tips",
+    "original": "优化会议音效，防止误碰麦克风语音键",
+    "translation": "Оптимизирует звук для конференций; случайное нажатие кнопки голоса микрофона исключено"
+  },
+  {
+    "key": "sound_mode_ai_text",
+    "original": "AI音效",
+    "translation": "AI-звук"
+  },
+  {
+    "key": "sound_mode_game_text",
+    "original": "游戏",
+    "translation": "Игра"
+  },
+  {
+    "key": "sound_mode_karaoke_text",
+    "original": "K歌",
+    "translation": "Караоке"
+  },
+  {
+    "key": "sound_mode_movie_text",
+    "original": "观影",
+    "translation": "Просмотр"
+  },
+  {
+    "key": "sound_mode_movie_tips",
+    "original": "搭配专属Total Immersion 天空音效、Total Surround 环绕音效,沉浸观影视听享受",
+    "translation": "В сочетании с эксклюзивными эффектами Total Immersion (звук сверху) и Total Surround (окружающий звук) даёт эффект присутствия при просмотре"
+  },
+  {
+    "key": "sound_mode_music_text",
+    "original": "音乐",
+    "translation": "Музыка"
+  },
+  {
+    "key": "sound_mode_news_text",
+    "original": "新闻",
+    "translation": "Новости"
+  },
+  {
+    "key": "sound_mode_sports_text",
+    "original": "体育",
+    "translation": "Спорт"
+  },
+  {
+    "key": "sound_mode_standard_text",
+    "original": "标准",
+    "translation": "Стандартный"
+  },
+  {
+    "key": "sound_mode_tab_tip",
+    "original": "根据播放内容选择偏好的音效",
+    "translation": "Выберите звуковой эффект под воспроизводимое содержимое"
+  },
+  {
+    "key": "sound_mode_vocal_text",
+    "original": "人声",
+    "translation": "Голос"
+  },
+  {
+    "key": "sound_out_auto",
+    "original": "自动",
+    "translation": "Авто"
+  },
+  {
+    "key": "sound_out_earc_v5_auto_text",
+    "original": "自动",
+    "translation": "Авто"
+  },
+  {
+    "key": "sound_out_earc_v5_auto_tips",
+    "original": "选择“自动”，并使用 HDMI 2.1以上线材连接支持eARC的音频系统，可输出高质量声音",
+    "translation": "Выберите «Авто» и подключите аудиосистему с eARC кабелем HDMI 2.1 или выше, чтобы получить звук высокого качества"
+  },
+  {
+    "key": "sound_out_earc_v5_close_text",
+    "original": "关",
+    "translation": "Выкл."
+  },
+  {
+    "key": "sound_out_earc_v5_close_tips",
+    "original": "选择“关闭”，声音将通过HDMI-ARC向功放输出",
+    "translation": "Выберите «Выкл.»: звук пойдёт на усилитель через HDMI-ARC"
+  },
+  {
+    "key": "sound_set_input_audio_format_passthrough",
+    "original": "光纤/ARC-Passthrough",
+    "translation": "Оптика/ARC-Passthrough"
+  },
+  {
+    "key": "sound_set_input_audio_format_pcm",
+    "original": "光纤/ARC-PCM",
+    "translation": "Оптика/ARC-PCM"
+  },
+  {
+    "key": "sound_set_input_audio_format_raw",
+    "original": "光纤/ARC-AUTO",
+    "translation": "Оптика/ARC-AUTO"
+  },
+  {
+    "key": "sound_set_input_audio_speaker_network_speaker",
+    "original": "内部扬声器+XGIMI Sound",
+    "translation": "Встроенный динамик + XGIMI Sound"
+  },
+  {
+    "key": "sound_set_input_audio_speaker_sound_system",
+    "original": "内部扬声器+低音炮",
+    "translation": "Встроенный динамик + сабвуфер"
+  },
+  {
+    "key": "sound_set_input_audio_speaker_xgimi_sound_system",
+    "original": "内部扬声器+XGIMI Sound+低音炮",
+    "translation": "Встроенный динамик + XGIMI Sound + сабвуфер"
+  },
+  {
+    "key": "theme_auto_text",
+    "original": "自动",
+    "translation": "Авто"
+  },
+  {
+    "key": "theme_auto_tips_text",
+    "original": "根据日出日落时间启动切换白昼、暗夜主题；此功能需要连接网络",
+    "translation": "Дневная и ночная темы переключаются по времени восхода и заката; для этой функции нужна сеть"
+  },
+  {
+    "key": "theme_display_blue",
+    "original": "蓝色",
+    "translation": "Синяя"
+  },
+  {
+    "key": "tips_upgrade_usb_state",
+    "original": "请将更新文件存放在（FAT32格式）U盘根目录中，并将U盘插入投影仪的USB2.0接口",
+    "translation": "Положите файл обновления в корень флешки (формат FAT32) и вставьте флешку в порт USB 2.0 проектора"
+  },
+  {
+    "key": "voice_audio_bluetooth_text",
+    "original": "蓝牙",
+    "translation": "Bluetooth"
+  },
+  {
+    "key": "voice_audio_headset_text",
+    "original": "耳机",
+    "translation": "Наушники"
+  },
+  {
+    "key": "voice_internal_speaker_text",
+    "original": "内部扬声器",
+    "translation": "Встроенный динамик"
+  },
+  {
+    "key": "voice_output_tips",
+    "original": "可选择声音输出设备，音频输出格式",
+    "translation": "Можно выбрать устройство вывода звука и формат аудиовыхода"
+  },
+  {
+    "key": "zoom_and_displacement_text",
+    "original": "缩放与位移",
+    "translation": "Масштаб и сдвиг"
+  }
+]

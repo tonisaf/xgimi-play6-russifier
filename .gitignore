@@ -1,0 +1,22 @@
+# Device data and investigation artifacts
+/dist/
+/investigation/
+/settings-ru/
+/russifier/runs/
+/russifier/tests/fixtures/
+/russifier/runtime/
+/russifier/tools/
+/russifier/payload/*.apk
+__pycache__/
+*.pyc
+*.apk
+*.bin
+*.db
+*.ser
+*.log
+*.jks
+*.keystore
+.env
+
+/skin/build/
+/.local/

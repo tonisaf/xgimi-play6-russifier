@@ -1,0 +1,15 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.beam.russifier.boot" android:versionCode="7" android:versionName="1.14.0">
+  <uses-sdk android:minSdkVersion="30" android:targetSdkVersion="30" />
+  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+  <application android:label="Русификатор XGIMI" android:allowBackup="false" android:directBootAware="true" android:theme="@android:style/Theme.DeviceDefault.NoActionBar">
+    <activity android:name=".MainActivity" android:exported="true">
+      <intent-filter><action android:name="android.intent.action.MAIN" /><category android:name="android.intent.category.LEANBACK_LAUNCHER" /><category android:name="android.intent.category.LAUNCHER" /></intent-filter>
+    </activity>
+    <receiver android:name=".BootReceiver" android:exported="false">
+      <intent-filter android:priority="2147483647"><action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" /><action android:name="android.intent.action.BOOT_COMPLETED" /><action android:name="android.intent.action.MY_PACKAGE_REPLACED" /></intent-filter>
+    </receiver>
+    <service android:name=".RestoreService" android:exported="false" />
+    <service android:name=".BootJob" android:exported="true" android:permission="android.permission.BIND_JOB_SERVICE" />
+  </application>
+</manifest>

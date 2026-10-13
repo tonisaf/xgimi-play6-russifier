@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<overlay>
+  <item target="string/app_name" value="@string/app_name" />
+  <item target="string/keyboard_switch_full" value="@string/keyboard_switch_full" />
+  <item target="string/keyboard_switch_nine" value="@string/keyboard_switch_nine" />
+  <item target="string/response_open_app_fail" value="@string/response_open_app_fail" />
+  <item target="string/response_open_fail" value="@string/response_open_fail" />
+  <item target="string/response_processing" value="@string/response_processing" />
+  <item target="string/widget_dialog_loading" value="@string/widget_dialog_loading" />
+  <item target="string/xbase_error_ConnectException" value="@string/xbase_error_ConnectException" />
+  <item target="string/xbase_error_SSLHandshakeException" value="@string/xbase_error_SSLHandshakeException" />
+  <item target="string/xbase_error_SocketTimeoutException" value="@string/xbase_error_SocketTimeoutException" />
+  <item target="string/xbase_error_TimeoutException" value="@string/xbase_error_TimeoutException" />
+  <item target="string/xbase_error_default" value="@string/xbase_error_default" />
+  <item target="string/xbase_error_no_network" value="@string/xbase_error_no_network" />
+  <item target="string/xbase_error_no_space" value="@string/xbase_error_no_space" />
+  <item target="string/xbase_error_service_exception" value="@string/xbase_error_service_exception" />
+  <item target="string/xbase_no_data" value="@string/xbase_no_data" />
+  <item target="string/xbase_progress_wait_fail" value="@string/xbase_progress_wait_fail" />
+  <item target="string/xbase_to_connect_network" value="@string/xbase_to_connect_network" />
+  <item target="string/xbase_to_retry" value="@string/xbase_to_retry" />
+</overlay>

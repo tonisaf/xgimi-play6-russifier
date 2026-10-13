@@ -1,0 +1,15 @@
+{
+  "version": "1.19.36",
+  "added": 1249,
+  "rroStrings": 1328,
+  "example": {
+    "ab_update_cancel_bt": "Отмена",
+    "ab_update_desc_title": "Установка новой версии завершена",
+    "ab_update_failed_title": "Не удалось обновить",
+    "ab_update_later_bt": "Позже",
+    "ab_update_reboot_bt": "Перезагрузить сейчас",
+    "ab_update_retry_bt": "Повторить",
+    "ab_update_title": "Перезагрузите устройство, чтобы завершить обновление",
+    "adaptive_enhancement_str": "Адаптивное улучшение"
+  }
+}

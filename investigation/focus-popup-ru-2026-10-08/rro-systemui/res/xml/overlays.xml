@@ -1,0 +1,6 @@
+<overlay xmlns:android="http://schemas.android.com/apk/res/android">
+<item target="drawable/app_icon_ak3" value="@drawable/ak_progress_ru"/>
+<item target="drawable/app_icon_ak4" value="@drawable/ak_progress_ru"/>
+<item target="string/ak_end_toast_tips" value="@string/ak_complete_ru"/>
+<item target="string/hall_focus_success" value="@string/focus_complete_ru"/>
+</overlay>

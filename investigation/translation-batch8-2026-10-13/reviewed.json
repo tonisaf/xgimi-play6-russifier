@@ -1,0 +1,332 @@
+[
+  {
+    "name": "adaptation_mutex_toast",
+    "stock": "请先关闭%1$s自适应后再重试",
+    "ru": "Сначала отключите адаптацию %1$s и повторите попытку"
+  },
+  {
+    "name": "bluetooth_audio_sharing_toast",
+    "stock": "音频共享功能仅支持声音输出为“自动”时使用",
+    "ru": "Общий доступ к аудио работает только при выходе звука «Авто»"
+  },
+  {
+    "name": "brightness_adaption_off_tips",
+    "stock": "亮度自适应已关闭",
+    "ru": "Адаптивная яркость выключена"
+  },
+  {
+    "name": "brightness_adaption_on_tips",
+    "stock": "亮度自适应已开启",
+    "ru": "Адаптивная яркость включена"
+  },
+  {
+    "name": "calibration_dialog_reset_toast",
+    "stock": "已恢复至默认校准状态",
+    "ru": "Калибровка сброшена к значению по умолчанию"
+  },
+  {
+    "name": "displacement_end_tip",
+    "stock": "位移可能造成画面模糊，按\\\"@\\\"手动对焦",
+    "ru": "Сдвиг может размыть изображение; нажмите «@» для ручной фокусировки"
+  },
+  {
+    "name": "env_adaption_off_tips",
+    "stock": "环境自适应已关闭",
+    "ru": "Адаптация к окружению выключена"
+  },
+  {
+    "name": "env_adaption_on_tips",
+    "stock": "环境自适应已开启",
+    "ru": "Адаптация к окружению включена"
+  },
+  {
+    "name": "env_self_adapt_title_toast",
+    "stock": "根据环境光自动调整画面亮度，以达到最佳的观影效果",
+    "ru": "Автоматически подстраивает яркость по окружающему свету для лучшего просмотра"
+  },
+  {
+    "name": "env_self_adapt_title_toast_xiaobai",
+    "stock": "根据环境光自动调整画面亮度",
+    "ru": "Автоматически подстраивает яркость по окружающему свету"
+  },
+  {
+    "name": "exit_boost_on_tips",
+    "stock": "请退出 Boost 亮度档位后重试",
+    "ru": "Выйдите из режима яркости Boost и повторите"
+  },
+  {
+    "name": "eye_project_confirm_close_toast",
+    "stock": "已关闭智能防射眼",
+    "ru": "Умная защита глаз выключена"
+  },
+  {
+    "name": "fan_stand_mode_auto_toast",
+    "stock": "风速已调整为“自动”",
+    "ru": "Скорость вентилятора переключена на «Авто»"
+  },
+  {
+    "name": "fan_stand_mode_toast",
+    "stock": "请先在隐藏设置中关闭“支架模式”后重试",
+    "ru": "Сначала отключите «Режим подставки» в скрытых настройках и повторите"
+  },
+  {
+    "name": "focus_max",
+    "stock": "已调整上限",
+    "ru": "Достигнут предел настройки"
+  },
+  {
+    "name": "game_keystone_toast",
+    "stock": "极速模式下不支持自动画面调整",
+    "ru": "В режиме максимальной скорости автонастройка изображения недоступна"
+  },
+  {
+    "name": "gyroscope_calibration_reset_toast",
+    "stock": "已恢复至默认校准状态",
+    "ru": "Калибровка сброшена к значению по умолчанию"
+  },
+  {
+    "name": "hall_calibration_angle_toast",
+    "stock": "请调整投影角度后重试",
+    "ru": "Измените угол проекции и повторите"
+  },
+  {
+    "name": "hall_calibration_distance_toast",
+    "stock": "请调整投影距离后重试",
+    "ru": "Измените расстояние проекции и повторите"
+  },
+  {
+    "name": "hall_calibration_error_toast",
+    "stock": "请确保投影稳定后再重试",
+    "ru": "Дождитесь, пока проектор встанет устойчиво, и повторите"
+  },
+  {
+    "name": "hall_calibration_largeH_angle_toast",
+    "stock": "当前水平角度过大，请调整投影角度后重试",
+    "ru": "Горизонтальный угол слишком большой, измените угол проекции и повторите"
+  },
+  {
+    "name": "hall_calibration_largeV_angle_toast",
+    "stock": "当前俯仰角度过大，请调整投影角度后重试",
+    "ru": "Угол наклона слишком большой, измените угол проекции и повторите"
+  },
+  {
+    "name": "hall_calibration_large_both_angle_toast",
+    "stock": "当前水平、俯仰角度过大，请调整投影角度后重试",
+    "ru": "Горизонтальный угол и угол наклона слишком большие, измените угол проекции и повторите"
+  },
+  {
+    "name": "hdmi_game_bt_toast",
+    "stock": "请在信号输入大于100Hz时使用",
+    "ru": "Используйте при входном сигнале выше 100 Гц"
+  },
+  {
+    "name": "keystone_calibration_toast",
+    "stock": "极速模式下不能触发一键校准",
+    "ru": "В режиме максимальной скорости калибровку в одно касание запустить нельзя"
+  },
+  {
+    "name": "keystone_reset_toast",
+    "stock": "已恢复至默认画面",
+    "ru": "Изображение сброшено к значению по умолчанию"
+  },
+  {
+    "name": "level_keystone_max",
+    "stock": "已调整到上限",
+    "ru": "Достигнут предел настройки"
+  },
+  {
+    "name": "min_wifi_pass_msg_tip",
+    "stock": "至少输入8个字符",
+    "ru": "Введите не менее 8 символов"
+  },
+  {
+    "name": "misckey_toast_connect_bluetooth_first",
+    "stock": "请先连接手机蓝牙播放音乐",
+    "ru": "Сначала подключите Bluetooth телефона и включите музыку"
+  },
+  {
+    "name": "network_ap_close_tip",
+    "stock": "热点已关闭",
+    "ru": "Точка доступа выключена"
+  },
+  {
+    "name": "network_ap_failed_tip",
+    "stock": "未知异常，请稍后再试",
+    "ru": "Неизвестная ошибка, повторите позже"
+  },
+  {
+    "name": "network_ap_open_tip",
+    "stock": "成功打开 %s 热点",
+    "ru": "Точка доступа %s включена"
+  },
+  {
+    "name": "network_save_ap_tip",
+    "stock": "当前配置已保存",
+    "ru": "Текущая конфигурация сохранена"
+  },
+  {
+    "name": "network_wifi_con_hide_error_tip",
+    "stock": "无法连接此网络",
+    "ru": "Не удаётся подключиться к этой сети"
+  },
+  {
+    "name": "network_wifi_con_none_error_tip",
+    "stock": "无法保存网络",
+    "ru": "Не удаётся сохранить сеть"
+  },
+  {
+    "name": "picture_light_max",
+    "stock": "已调整到最大",
+    "ru": "Достигнут максимум"
+  },
+  {
+    "name": "picture_light_min",
+    "stock": "已调整到最小",
+    "ru": "Достигнут минимум"
+  },
+  {
+    "name": "picture_zoom_max",
+    "stock": "已调整到最大",
+    "ru": "Достигнут максимум"
+  },
+  {
+    "name": "picture_zoom_min",
+    "stock": "已调整到最小",
+    "ru": "Достигнут минимум"
+  },
+  {
+    "name": "screen_displacement_down_toast",
+    "stock": "已调整到最低",
+    "ru": "Достигнут нижний предел"
+  },
+  {
+    "name": "screen_displacement_left_toast",
+    "stock": "已调整到最左",
+    "ru": "Достигнут левый предел"
+  },
+  {
+    "name": "screen_displacement_right_toast",
+    "stock": "已调整到最右",
+    "ru": "Достигнут правый предел"
+  },
+  {
+    "name": "screen_displacement_up_toast",
+    "stock": "已调整到最高",
+    "ru": "Достигнут верхний предел"
+  },
+  {
+    "name": "smart_curtain_toast_highest",
+    "stock": "已调整到最高",
+    "ru": "Достигнут верхний предел"
+  },
+  {
+    "name": "smart_curtain_toast_minimum",
+    "stock": "已调整到最低",
+    "ru": "Достигнут нижний предел"
+  },
+  {
+    "name": "toast_color_space_mode_color_enhanced",
+    "stock": "性能模式下暂不支持色彩调节",
+    "ru": "В режиме производительности настройка цвета пока недоступна"
+  },
+  {
+    "name": "toast_custom_color_not_support_ae",
+    "stock": "自定义模式不支持%1$s自适应",
+    "ru": "В пользовательском режиме адаптация %1$s недоступна"
+  },
+  {
+    "name": "toast_custom_name_not_empty",
+    "stock": "设备名称不能为空",
+    "ru": "Название устройства не может быть пустым"
+  },
+  {
+    "name": "toast_file_check_fail",
+    "stock": "文件检测出错，错误代码：001",
+    "ru": "Ошибка проверки файла, код ошибки: 001"
+  },
+  {
+    "name": "toast_hind_time_switch_manual",
+    "stock": "手动设置时间可能会导致设备无法访问网络",
+    "ru": "Ручная настройка времени может лишить устройство доступа к сети"
+  },
+  {
+    "name": "toast_led_performance_mode_brightness_level",
+    "stock": "性能模式下暂不支持亮度调节",
+    "ru": "В режиме производительности регулировка яркости пока недоступна"
+  },
+  {
+    "name": "toast_led_performance_mode_color_enhanced",
+    "stock": "性能模式下暂不支持色彩调节",
+    "ru": "В режиме производительности настройка цвета пока недоступна"
+  },
+  {
+    "name": "toast_led_performance_mode_contrast_enhance",
+    "stock": "性能模式下暂不支持对比度增强",
+    "ru": "В режиме производительности усиление контраста пока недоступно"
+  },
+  {
+    "name": "toast_led_turbo_light_brightness_level",
+    "stock": "请先恢复Turbo Light后重试",
+    "ru": "Сначала верните Turbo Light и повторите"
+  },
+  {
+    "name": "toast_more_point_keystone_arrive_limit",
+    "stock": "当前方向到达极限，无法继续移动",
+    "ru": "В этом направлении достигнут предел, дальше двигаться нельзя"
+  },
+  {
+    "name": "toast_net_fail",
+    "stock": "网络异常，请检查后重试",
+    "ru": "Сбой сети, проверьте и повторите"
+  },
+  {
+    "name": "toast_net_server_fail",
+    "stock": "服务器异常，请稍后重试",
+    "ru": "Сбой сервера, повторите позже"
+  },
+  {
+    "name": "toast_no_history",
+    "stock": "暂无历史版本",
+    "ru": "Истории версий пока нет"
+  },
+  {
+    "name": "toast_open_smart_curtain_error",
+    "stock": "打开智能幕布应用失败，请检查是否安装了此应用",
+    "ru": "Не удалось открыть приложение умного экрана; проверьте, что оно установлено"
+  },
+  {
+    "name": "toast_performance_color_not_support_ae",
+    "stock": "性能模式不支持%1$s自适应",
+    "ru": "В режиме производительности адаптация %1$s недоступна"
+  },
+  {
+    "name": "toast_please_insert_usb",
+    "stock": "请先插入U盘",
+    "ru": "Сначала вставьте флешку"
+  },
+  {
+    "name": "toast_wakeup_add_device",
+    "stock": "请先添加唤醒设备",
+    "ru": "Сначала добавьте устройство пробуждения"
+  },
+  {
+    "name": "wifi_add_other_ssid_error_tip",
+    "stock": "请输入ssid",
+    "ru": "Введите SSID"
+  },
+  {
+    "name": "wifi_check_ethernet_toast",
+    "stock": "请拔出网线后再连接Wi-Fi",
+    "ru": "Отключите сетевой кабель и затем подключитесь к Wi-Fi"
+  },
+  {
+    "name": "wifi_con_hide_error_tip",
+    "stock": "无法连接此网络",
+    "ru": "Не удаётся подключиться к этой сети"
+  },
+  {
+    "name": "zoom_end_toast",
+    "stock": "画面不清晰？按 @ 自动对焦",
+    "ru": "Изображение нечёткое? Нажмите @ для автофокуса"
+  }
+]

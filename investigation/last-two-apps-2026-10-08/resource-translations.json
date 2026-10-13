@@ -1,0 +1,21 @@
+{
+  "app_name": "Помощь XGIMI",
+  "keyboard_switch_full": "Полная клавиатура",
+  "keyboard_switch_nine": "Клавиатура T9",
+  "response_open_app_fail": "Не удалось открыть приложение. Повторите позже",
+  "response_open_fail": "Не удалось открыть",
+  "response_processing": "Загрузка…",
+  "widget_dialog_loading": "Загрузка…",
+  "xbase_error_ConnectException": "Ошибка сети. Код: %s",
+  "xbase_error_SSLHandshakeException": "Проверьте дату и время. Код: %s",
+  "xbase_error_SocketTimeoutException": "Истекло время ожидания ответа. Код: %s",
+  "xbase_error_TimeoutException": "Истекло время подключения. Код: %s",
+  "xbase_error_default": "Неизвестная ошибка. Код: %s",
+  "xbase_error_no_network": "Нет подключения к сети. Код: %s",
+  "xbase_error_no_space": "Мало места на накопителе. Код: %s",
+  "xbase_error_service_exception": "Ошибка сервера. Код: %s",
+  "xbase_no_data": "Нет данных",
+  "xbase_progress_wait_fail": "Произошла ошибка",
+  "xbase_to_connect_network": "Подключиться к сети",
+  "xbase_to_retry": "Повторить"
+}

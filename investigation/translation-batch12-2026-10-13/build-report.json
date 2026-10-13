@@ -1,0 +1,30 @@
+{
+  "version": "1.19.29",
+  "panel": {
+    "亮度": 3,
+    "环境光": 1,
+    "环境": 1
+  },
+  "systemuiNative": {
+    "亮度": 1,
+    "环境光": 1,
+    "环境": 1
+  },
+  "settingsNew": {
+    "al_off_not_led_tip": "Отключите адаптацию %1$s и повторите",
+    "auto_led_not_3d": "Отключите адаптацию %1$s, затем используйте настройки 3D",
+    "enable_auto_color_not_al_off": "Отключите адаптацию к цвету стены, затем используйте адаптацию %1$s",
+    "misckey_string_custom_color_not_support_ae": "В пользовательском режиме адаптация %1$s недоступна",
+    "misckey_string_performance_color_not_support_ae": "В режиме производительности адаптация %1$s недоступна",
+    "misckey_string_three_d_not_auto_led": "При настройках 3D адаптация %1$s недоступна",
+    "three_d_not_auto_led": "При настройках 3D адаптация %1$s недоступна",
+    "wall_color_calibration_brightness_self_adapt": "Адаптация %1$s нарушает адаптацию к цвету стены",
+    "wall_color_calibration_env_self_adapt": "Адаптация %1$s нарушает адаптацию к цвету стены",
+    "wall_color_calibration_not_env_self_adapt": "Отключите адаптацию %1$s и повторите",
+    "three_d_not_image_mode": "Отключите настройки 3D и повторите",
+    "three_d_not_iamge_ratio_tip": "При настройках 3D соотношение сторон изображения менять нельзя"
+  },
+  "systemuiNew": {
+    "env_adapt_title": "Адаптация %1$s"
+  }
+}

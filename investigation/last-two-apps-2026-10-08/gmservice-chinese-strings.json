@@ -1,0 +1,21 @@
+{
+  "app_name": "帮助与反馈",
+  "keyboard_switch_full": "全键盘",
+  "keyboard_switch_nine": "九宫格",
+  "response_open_app_fail": "应用打开失败，请稍后重试",
+  "response_open_fail": "打开失败",
+  "response_processing": "正在加载中…",
+  "widget_dialog_loading": "正在加载中…",
+  "xbase_error_ConnectException": "网络好像有问题，错误码：%s",
+  "xbase_error_SSLHandshakeException": "请查看系统时间日期是否正确，错误码：%s",
+  "xbase_error_SocketTimeoutException": "网络请求超时，错误码：%s",
+  "xbase_error_TimeoutException": "网络连接超时，错误码：%s",
+  "xbase_error_default": "未知异常，错误码：%s",
+  "xbase_error_no_network": "未连接网络，错误码：%s",
+  "xbase_error_no_space": "存储空间不足，错误码：%s",
+  "xbase_error_service_exception": "服务器开小差了，错误码：%s",
+  "xbase_no_data": "暂无数据",
+  "xbase_progress_wait_fail": "出错啦！",
+  "xbase_to_connect_network": "连接网络",
+  "xbase_to_retry": "重试"
+}
