@@ -12,9 +12,13 @@
 |---|---|
 | ![Проверка проектора](docs/screenshots/installer-check.png) | ![Установить русификацию](docs/screenshots/installer-install.png) |
 
-| Настройки проектора | Назначение кнопок пульта |
+| Быстрая панель | Настройки проектора |
 |---|---|
-| ![Настройки: раздел «Общие»](docs/screenshots/settings-general.png) | ![Кнопки пульта](docs/screenshots/remote-buttons.png) |
+| ![Быстрая панель](docs/screenshots/quick-panel.webp) | ![Настройки: раздел «Общие»](docs/screenshots/settings-general.png) |
+
+| Назначение кнопок пульта |
+|---|
+| ![Кнопки пульта](docs/screenshots/remote-buttons.png) |
 
 ## Документация
 
