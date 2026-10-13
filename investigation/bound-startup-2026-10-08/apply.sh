@@ -1,6 +1,6 @@
 #!/system/bin/sh
 umask 022
-D=/data/local/beam-russifier-boot/releases/1.19.41-d8bbcc4d038c5e94
+D=/data/local/beam-russifier-boot/releases/1.19.44-3d09369163b99a3e
 RUN=$(cat /proc/sys/kernel/random/uuid)
 finish() { code=$?; if [ "$(getprop vendor.xgimi.system.debug.cmd)" = "/system/bin/sh $D/apply.sh" ]; then setprop vendor.xgimi.system.debug.cmd ""; setprop vendor.xgimi.system.debugserver ""; fi; printf "%s %s\n" "$RUN" "$code" > "$D/done"; chmod 644 "$D/done"; }
 trap finish EXIT
@@ -29,8 +29,8 @@ up() { UPN=$(</proc/uptime); UPN=${UPN%% *}; }
 SIGF='%n %s:%Y:%d:%i'
 # Lookup tables are shell variables filled by one awk each; names are the key with every non-alphanumeric turned into "_".
 mkvars() { awk -v p="$1" '{k=$1; gsub(/[^A-Za-z0-9]/,"_",k); print p k "=\x27" $2 "\x27"}'; }
-eval "$(stat -c "$SIGF" "$D/panel.apk" "$D/wirelessscreen-native.apk" "$D/gmservice-native.apk" "$D/systemui-native.apk" "$D/atmosphere-native.apk" "$D/upgrade-native.apk" "$D/shutdown-native.apk" "$D/manager-native.apk" "$D/ota-accessories-native.apk" "$D/skin.apk" /system/priv-app/release_838_newsettings/release_838_newsettings.apk /system/priv-app/SystemUI_release_838/SystemUI_release_838.apk /vendor/priv-app/Atmosphere_release838/Atmosphere_release838.apk /vendor/priv-app/release_838_shutdown/release_838_shutdown.apk /vendor/priv-app/smartaccessories_release_838/smartaccessories_release_838.apk /system/priv-app/XgimiOtaAccessories_release848/XgimiOtaAccessories_release848.apk /vendor/priv-app/xgimiiotserver_release_838/xgimiiotserver_release_838.apk /vendor/priv-app/update/update.apk /vendor/priv-app/wirelessscreen/wirelessscreen.apk /vendor/priv-app/Instruction_release838/Instruction_release838.apk /vendor/priv-app/XgimiManager_release838/XgimiManager_release838.apk /vendor/priv-app/GMService_release838/GMService_release838.apk /vendor/priv-app/AccountCenter_release838/AccountCenter_release838.apk /system/framework/framework-res.apk /vendor/priv-app/GlobalConfig_release838/GlobalConfig_release838.apk /system/priv-app/XRMService/XRMService.apk /system/priv-app/NewSounderMode/NewSounderMode.apk /vendor/app/XgimiFrameworkUi/XgimiFrameworkUi.apk 2>/dev/null | mkvars SG_)"
-eval "$(nsenter -t "$zyg" -m -- stat -c "$SIGF" /system/priv-app/release_838_newsettings/release_838_newsettings.apk /system/priv-app/SystemUI_release_838/SystemUI_release_838.apk /vendor/priv-app/Atmosphere_release838/Atmosphere_release838.apk /vendor/priv-app/release_838_shutdown/release_838_shutdown.apk /vendor/priv-app/smartaccessories_release_838/smartaccessories_release_838.apk /system/priv-app/XgimiOtaAccessories_release848/XgimiOtaAccessories_release848.apk /vendor/priv-app/xgimiiotserver_release_838/xgimiiotserver_release_838.apk /vendor/priv-app/update/update.apk /vendor/priv-app/wirelessscreen/wirelessscreen.apk /vendor/priv-app/Instruction_release838/Instruction_release838.apk /vendor/priv-app/XgimiManager_release838/XgimiManager_release838.apk /vendor/priv-app/GMService_release838/GMService_release838.apk /vendor/priv-app/AccountCenter_release838/AccountCenter_release838.apk /system/framework/framework-res.apk /vendor/priv-app/GlobalConfig_release838/GlobalConfig_release838.apk /system/priv-app/XRMService/XRMService.apk /system/priv-app/NewSounderMode/NewSounderMode.apk /vendor/app/XgimiFrameworkUi/XgimiFrameworkUi.apk 2>/dev/null | mkvars NS_)"
+eval "$(stat -c "$SIGF" "$D/panel.apk" "$D/wirelessscreen-native.apk" "$D/gmservice-native.apk" "$D/systemui-native.apk" "$D/atmosphere-native.apk" "$D/upgrade-native.apk" "$D/shutdown-native.apk" "$D/manager-native.apk" "$D/ota-accessories-native.apk" "$D/skin.apk" /system/priv-app/release_838_newsettings/release_838_newsettings.apk /system/priv-app/SystemUI_release_838/SystemUI_release_838.apk /vendor/priv-app/Atmosphere_release838/Atmosphere_release838.apk /vendor/priv-app/release_838_shutdown/release_838_shutdown.apk /vendor/priv-app/smartaccessories_release_838/smartaccessories_release_838.apk /system/priv-app/XgimiOtaAccessories_release848/XgimiOtaAccessories_release848.apk /vendor/priv-app/xgimiiotserver_release_838/xgimiiotserver_release_838.apk /vendor/priv-app/update/update.apk /vendor/priv-app/wirelessscreen/wirelessscreen.apk /vendor/priv-app/Instruction_release838/Instruction_release838.apk /vendor/priv-app/XgimiManager_release838/XgimiManager_release838.apk /vendor/priv-app/GMService_release838/GMService_release838.apk /vendor/priv-app/AccountCenter_release838/AccountCenter_release838.apk /system/framework/framework-res.apk /vendor/priv-app/GlobalConfig_release838/GlobalConfig_release838.apk /system/priv-app/XRMService/XRMService.apk /system/priv-app/NewSounderMode/NewSounderMode.apk /vendor/app/XgimiFrameworkUi/XgimiFrameworkUi.apk /vendor/priv-app/vcontrol_release838/vcontrol_release838.apk /vendor/priv-app/mediaPlayer_release838/mediaPlayer_release838.apk 2>/dev/null | mkvars SG_)"
+eval "$(nsenter -t "$zyg" -m -- stat -c "$SIGF" /system/priv-app/release_838_newsettings/release_838_newsettings.apk /system/priv-app/SystemUI_release_838/SystemUI_release_838.apk /vendor/priv-app/Atmosphere_release838/Atmosphere_release838.apk /vendor/priv-app/release_838_shutdown/release_838_shutdown.apk /vendor/priv-app/smartaccessories_release_838/smartaccessories_release_838.apk /system/priv-app/XgimiOtaAccessories_release848/XgimiOtaAccessories_release848.apk /vendor/priv-app/xgimiiotserver_release_838/xgimiiotserver_release_838.apk /vendor/priv-app/update/update.apk /vendor/priv-app/wirelessscreen/wirelessscreen.apk /vendor/priv-app/Instruction_release838/Instruction_release838.apk /vendor/priv-app/XgimiManager_release838/XgimiManager_release838.apk /vendor/priv-app/GMService_release838/GMService_release838.apk /vendor/priv-app/AccountCenter_release838/AccountCenter_release838.apk /system/framework/framework-res.apk /vendor/priv-app/GlobalConfig_release838/GlobalConfig_release838.apk /system/priv-app/XRMService/XRMService.apk /system/priv-app/NewSounderMode/NewSounderMode.apk /vendor/app/XgimiFrameworkUi/XgimiFrameworkUi.apk /vendor/priv-app/vcontrol_release838/vcontrol_release838.apk /vendor/priv-app/mediaPlayer_release838/mediaPlayer_release838.apk 2>/dev/null | mkvars NS_)"
 if [ "$FULL" != 1 ]; then eval "$(awk '{k=$1 "_" $2; gsub(/[^A-Za-z0-9]/,"_",k); print "HC_" k "=\x27" $3 "\x27"}' "$HC")"; fi
 get() { eval "echo \"\${$1:-}\""; }
 sig() { s=$(get "SG_${1//[!A-Za-z0-9]/_}"); if [ -z "$s" ]; then s=$(stat -c "%s:%Y:%d:%i" "$1" 2>/dev/null || true); fi; echo "$s"; }
@@ -258,6 +258,8 @@ rt_hash /vendor/priv-app/GlobalConfig_release838/GlobalConfig_release838.apk; te
 rt_hash /system/priv-app/XRMService/XRMService.apk; test "$RH" = 40274f5049bd450047ac43cb049b5a120dd2c145964f7722f7cb5c70e07c6048
 rt_hash /system/priv-app/NewSounderMode/NewSounderMode.apk; test "$RH" = 4634cf008a1926de7dc231717a988635a4f568f0599170ec715372ae4f6edc33
 rt_hash /vendor/app/XgimiFrameworkUi/XgimiFrameworkUi.apk; test "$RH" = 9869ccf062ded8c37e399618ad909f48317a2df079dfa88daab25ec9bbaa978a
+rt_hash /vendor/priv-app/vcontrol_release838/vcontrol_release838.apk; test "$RH" = 3f588ddc4dc362be833f9d5960d69a5864d9c77bedcfd87cda30af7ca2f2abe7
+rt_hash /vendor/priv-app/mediaPlayer_release838/mediaPlayer_release838.apk; test "$RH" = 629387b9eec7f0bd6d200f59fc0e89584d4dbf1e96b7aea75dd73374efc603fd
 up; echo "t_orig_done=$UPN"
 ov_index() {
   for d in /data/app/*/com.beam.translation.*/; do
@@ -272,11 +274,11 @@ ov_index_pm() {
 }
 ov_load() {
   OVFILES=""
-  for pk in com.beam.translation.systemui com.beam.translation.settings com.beam.translation.ambient com.beam.translation.atmosphere com.beam.translation.shutdown com.beam.translation.smartaccessories com.beam.translation.otaaccessories com.beam.translation.xgimiiotserver com.beam.translation.upgrade com.beam.translation.wirelessscreen com.beam.translation.instruction30 com.beam.translation.manager com.beam.translation.gmservice com.beam.translation.user com.beam.translation.frameworkpower com.beam.translation.config com.beam.translation.xrmservice com.beam.translation.soundermodeservice com.beam.translation.xgimiframeworkui; do eval "p=\${OV_${pk//[!A-Za-z0-9]/_}:-}"; k=${p#/}; OVFILES="$OVFILES $p /data/resource-cache/${k//\//@}@idmap"; done
+  for pk in com.beam.translation.systemui com.beam.translation.settings com.beam.translation.ambient com.beam.translation.atmosphere com.beam.translation.shutdown com.beam.translation.smartaccessories com.beam.translation.otaaccessories com.beam.translation.xgimiiotserver com.beam.translation.upgrade com.beam.translation.wirelessscreen com.beam.translation.instruction30 com.beam.translation.manager com.beam.translation.gmservice com.beam.translation.user com.beam.translation.frameworkpower com.beam.translation.config com.beam.translation.xrmservice com.beam.translation.soundermodeservice com.beam.translation.xgimiframeworkui com.beam.translation.vcontrol com.beam.translation.gimiplayer; do eval "p=\${OV_${pk//[!A-Za-z0-9]/_}:-}"; k=${p#/}; OVFILES="$OVFILES $p /data/resource-cache/${k//\//@}@idmap"; done
   eval "$(stat -c "$SIGF" $OVFILES 2>/dev/null | mkvars SG_)"
 }
 ov_check() {
-  eval "OVERLAY=\${OV_com_beam_translation_systemui:-}"; test -f "$OVERLAY" || return 1; check_hash2 "$OVERLAY" 69e2eff4f5d05770fda979d03e67962c109f16e81146a1c846416242290b065f || return 1
+  eval "OVERLAY=\${OV_com_beam_translation_systemui:-}"; test -f "$OVERLAY" || return 1; check_hash2 "$OVERLAY" 045c0603709f045fa92e61a454fc5fd3bfe207030d9e01bbaa57a48914b2c8c4 || return 1
   eval "OVERLAY=\${OV_com_beam_translation_settings:-}"; test -f "$OVERLAY" || return 1; check_hash2 "$OVERLAY" 0f0c4800ca377d13b3720e426c8b6684be441af038bffdd4720dd32f0951c995 || return 1
   eval "OVERLAY=\${OV_com_beam_translation_ambient:-}"; test -f "$OVERLAY" || return 1; check_hash2 "$OVERLAY" 7d183367a17f7a62c02399edfd649a3cc1bdb53f18d703b1b8a04a2bf60fc389 || return 1
   eval "OVERLAY=\${OV_com_beam_translation_atmosphere:-}"; test -f "$OVERLAY" || return 1; check_hash2 "$OVERLAY" 5cf66e149ece15810a170e1120103bc63a86b28949108788e88cfdf2145c837e || return 1
@@ -285,19 +287,21 @@ ov_check() {
   eval "OVERLAY=\${OV_com_beam_translation_otaaccessories:-}"; test -f "$OVERLAY" || return 1; check_hash2 "$OVERLAY" 084cdca1be139957ec18d12cd9a02286e8713a29e7474049f90342719cb9537a || return 1
   eval "OVERLAY=\${OV_com_beam_translation_xgimiiotserver:-}"; test -f "$OVERLAY" || return 1; check_hash2 "$OVERLAY" 634907a8199b652e6d0e7848d2a1bb4f310c0083e960800a860bc635af23a9d4 || return 1
   eval "OVERLAY=\${OV_com_beam_translation_upgrade:-}"; test -f "$OVERLAY" || return 1; check_hash2 "$OVERLAY" 0071699690cecfab24562daca7f372ffe11526fb2b274fdb70c8044c2ed598b0 || return 1
-  eval "OVERLAY=\${OV_com_beam_translation_wirelessscreen:-}"; test -f "$OVERLAY" || return 1; check_hash2 "$OVERLAY" db7b21bf5afe0ea3be0df824d4ca5bdf0ed20985b884c1bfebce4c6c62821c9b || return 1
+  eval "OVERLAY=\${OV_com_beam_translation_wirelessscreen:-}"; test -f "$OVERLAY" || return 1; check_hash2 "$OVERLAY" c02608d3d66c115f3c3624be9a78b4e580780c2b4e720e2c989a50116ab35f0f || return 1
   eval "OVERLAY=\${OV_com_beam_translation_instruction30:-}"; test -f "$OVERLAY" || return 1; check_hash2 "$OVERLAY" f46430e8fc4df6aa71c926d78eb7af93c42e13ed65b8daae3728596d1dd1a043 || return 1
   eval "OVERLAY=\${OV_com_beam_translation_manager:-}"; test -f "$OVERLAY" || return 1; check_hash2 "$OVERLAY" ed34c023c4cd6d5c08495a2d54d451dad96f495afc661be34af1b512732a1fdf || return 1
   eval "OVERLAY=\${OV_com_beam_translation_gmservice:-}"; test -f "$OVERLAY" || return 1; check_hash2 "$OVERLAY" 9ac18f1cdbe76d493c959807840238960ac43217021e746185a84cf56a1e3bac || return 1
   eval "OVERLAY=\${OV_com_beam_translation_user:-}"; test -f "$OVERLAY" || return 1; check_hash2 "$OVERLAY" a3fd2614b81dfffa07b287684ab514105db68273407c6b22309183470ab7ec13 || return 1
   eval "OVERLAY=\${OV_com_beam_translation_frameworkpower:-}"; test -f "$OVERLAY" || return 1; check_hash2 "$OVERLAY" dc9ea97291b2089bfaae61a3b1bfe3f5f65685083e0052d23884018e35890fdf || return 1
-  eval "OVERLAY=\${OV_com_beam_translation_config:-}"; test -f "$OVERLAY" || return 1; check_hash2 "$OVERLAY" 770e393459bf10a37b188def18781b4f6a9a271eca03a6a0b529c160ff06f594 || return 1
+  eval "OVERLAY=\${OV_com_beam_translation_config:-}"; test -f "$OVERLAY" || return 1; check_hash2 "$OVERLAY" 478729c7ee6330ad4335feb07a0b13b449e53815fd657162ad2ff98dec40424a || return 1
   eval "OVERLAY=\${OV_com_beam_translation_xrmservice:-}"; test -f "$OVERLAY" || return 1; check_hash2 "$OVERLAY" 3f8251fcf28e221bb65aab2175d7a1c7ef7ab7740e228f3510806f7ff612639a || return 1
   eval "OVERLAY=\${OV_com_beam_translation_soundermodeservice:-}"; test -f "$OVERLAY" || return 1; check_hash2 "$OVERLAY" 40f7bba82933c406263b7f2ebf4f7b13f98787d63197bb03848e642f7ee4219b || return 1
   eval "OVERLAY=\${OV_com_beam_translation_xgimiframeworkui:-}"; test -f "$OVERLAY" || return 1; check_hash2 "$OVERLAY" ad1e9a23f9b2c59558c8f6f8c39a34ec8ab6fc557f63d2c2998113a80e928db0 || return 1
+  eval "OVERLAY=\${OV_com_beam_translation_vcontrol:-}"; test -f "$OVERLAY" || return 1; check_hash2 "$OVERLAY" 93e1bbe63cf7bcbff2611642a377c471dd4dbeafeed9422bfdae1158847469c8 || return 1
+  eval "OVERLAY=\${OV_com_beam_translation_gimiplayer:-}"; test -f "$OVERLAY" || return 1; check_hash2 "$OVERLAY" 659968e57b1e06004afb2085afc4b553acc636bb60c12026905fe750e6d68d26 || return 1
 }
 ov_cache_load() { if [ -f "$OVC" ]; then eval "$(awk '{k=$1; gsub(/[^A-Za-z0-9]/,"_",k); print "OV_" k "=\x27" $2 "\x27"}' "$OVC")"; fi; }
-ov_cache_save() { for pk in com.beam.translation.systemui com.beam.translation.settings com.beam.translation.ambient com.beam.translation.atmosphere com.beam.translation.shutdown com.beam.translation.smartaccessories com.beam.translation.otaaccessories com.beam.translation.xgimiiotserver com.beam.translation.upgrade com.beam.translation.wirelessscreen com.beam.translation.instruction30 com.beam.translation.manager com.beam.translation.gmservice com.beam.translation.user com.beam.translation.frameworkpower com.beam.translation.config com.beam.translation.xrmservice com.beam.translation.soundermodeservice com.beam.translation.xgimiframeworkui; do eval "p=\${OV_${pk//[!A-Za-z0-9]/_}:-}"; echo "$pk $p"; done > "$OVC.new" && mv "$OVC.new" "$OVC"; chmod 600 "$OVC"; }
+ov_cache_save() { for pk in com.beam.translation.systemui com.beam.translation.settings com.beam.translation.ambient com.beam.translation.atmosphere com.beam.translation.shutdown com.beam.translation.smartaccessories com.beam.translation.otaaccessories com.beam.translation.xgimiiotserver com.beam.translation.upgrade com.beam.translation.wirelessscreen com.beam.translation.instruction30 com.beam.translation.manager com.beam.translation.gmservice com.beam.translation.user com.beam.translation.frameworkpower com.beam.translation.config com.beam.translation.xrmservice com.beam.translation.soundermodeservice com.beam.translation.xgimiframeworkui com.beam.translation.vcontrol com.beam.translation.gimiplayer; do eval "p=\${OV_${pk//[!A-Za-z0-9]/_}:-}"; echo "$pk $p"; done > "$OVC.new" && mv "$OVC.new" "$OVC"; chmod 600 "$OVC"; }
 OVC=$ROOTDIR/ovpaths
 OV_SOURCE=cache
 ov_cache_load; ov_load; up; echo "t_ovload=$UPN"
@@ -576,6 +580,34 @@ if [ -n "$want" ] && [ "$want" = "$have" ] && [ "$EN" = 1 ]; then IDMAP_SKIPPED=
   chmod 644 "$CACHE"
   cache_put "idmap:$CACHE" "$OSIG" "$(stat -c %s:%Y:%d:%i "$CACHE")"
   cmd overlay enable --user 0 com.beam.translation.xgimiframeworkui
+  IDMAP_DONE=$((IDMAP_DONE+1))
+fi
+eval "OVERLAY=\${OV_com_beam_translation_vcontrol}"
+k=${OVERLAY#/}; CACHE=/data/resource-cache/${k//\//@}@idmap
+sigv "$OVERLAY"; OSIG=$REPLY; sigv /vendor/priv-app/vcontrol_release838/vcontrol_release838.apk; OSIG="$OSIG|$REPLY"
+CK="idmap:${CACHE}_$OSIG"; eval "want=\${HC_${CK//[!A-Za-z0-9]/_}:-}"
+sigv "$CACHE"; have=$REPLY
+case "$NL$ENABLED$NL" in *"${NL}com.beam.translation.vcontrol${NL}"*) EN=1;; *) EN=0;; esac
+if [ -n "$want" ] && [ "$want" = "$have" ] && [ "$EN" = 1 ]; then IDMAP_SKIPPED=$((IDMAP_SKIPPED+1)); else
+  idmap2 create --target-apk-path /vendor/priv-app/vcontrol_release838/vcontrol_release838.apk --overlay-apk-path "$OVERLAY" --idmap-path "$CACHE" --policy public --ignore-overlayable
+  chown system:system "$CACHE"
+  chmod 644 "$CACHE"
+  cache_put "idmap:$CACHE" "$OSIG" "$(stat -c %s:%Y:%d:%i "$CACHE")"
+  cmd overlay enable --user 0 com.beam.translation.vcontrol
+  IDMAP_DONE=$((IDMAP_DONE+1))
+fi
+eval "OVERLAY=\${OV_com_beam_translation_gimiplayer}"
+k=${OVERLAY#/}; CACHE=/data/resource-cache/${k//\//@}@idmap
+sigv "$OVERLAY"; OSIG=$REPLY; sigv /vendor/priv-app/mediaPlayer_release838/mediaPlayer_release838.apk; OSIG="$OSIG|$REPLY"
+CK="idmap:${CACHE}_$OSIG"; eval "want=\${HC_${CK//[!A-Za-z0-9]/_}:-}"
+sigv "$CACHE"; have=$REPLY
+case "$NL$ENABLED$NL" in *"${NL}com.beam.translation.gimiplayer${NL}"*) EN=1;; *) EN=0;; esac
+if [ -n "$want" ] && [ "$want" = "$have" ] && [ "$EN" = 1 ]; then IDMAP_SKIPPED=$((IDMAP_SKIPPED+1)); else
+  idmap2 create --target-apk-path /vendor/priv-app/mediaPlayer_release838/mediaPlayer_release838.apk --overlay-apk-path "$OVERLAY" --idmap-path "$CACHE" --policy public --ignore-overlayable
+  chown system:system "$CACHE"
+  chmod 644 "$CACHE"
+  cache_put "idmap:$CACHE" "$OSIG" "$(stat -c %s:%Y:%d:%i "$CACHE")"
+  cmd overlay enable --user 0 com.beam.translation.gimiplayer
   IDMAP_DONE=$((IDMAP_DONE+1))
 fi
 up; echo "t_ov_loop=$UPN"

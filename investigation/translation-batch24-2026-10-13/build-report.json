@@ -1,0 +1,12 @@
+{
+  "version": "1.19.43",
+  "systemui.apk": {
+    "added": 176
+  },
+  "wirelessscreen.apk": {
+    "added": 100
+  },
+  "vcontrol.apk": {
+    "added": 45
+  }
+}

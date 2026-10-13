@@ -1,0 +1,21 @@
+{
+  "version": "1.19.40",
+  "config.apk": {
+    "package": "com.beam.translation.config",
+    "target": "com.xgimi.config",
+    "strings": 3,
+    "sha256": "770e393459bf10a37b188def18781b4f6a9a271eca03a6a0b529c160ff06f594"
+  },
+  "xrmservice.apk": {
+    "package": "com.beam.translation.xrmservice",
+    "target": "com.xgimi.xrmservice",
+    "strings": 15,
+    "sha256": "3f8251fcf28e221bb65aab2175d7a1c7ef7ab7740e228f3510806f7ff612639a"
+  },
+  "soundermode.apk": {
+    "package": "com.beam.translation.soundermodeservice",
+    "target": "com.xgimi.soundermodeservice",
+    "strings": 3,
+    "sha256": "40f7bba82933c406263b7f2ebf4f7b13f98787d63197bb03848e642f7ee4219b"
+  }
+}
