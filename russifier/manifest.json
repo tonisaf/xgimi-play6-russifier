@@ -1,5 +1,5 @@
 {
-  "version": "1.19.45",
+  "version": "1.19.46",
   "fingerprint": "XGIMI/Product_dayao/dragon_healthy:11/RP1A.200720.011/v1.7.116:user/dev-keys",
   "product": "Product_dayao",
   "device": "dragon_healthy",
@@ -2386,8 +2386,8 @@
   "remoteModule": {
     "package": "com.beam.remote",
     "file": "remote-buttons.apk",
-    "version": "0.6-test",
-    "versionCode": 6,
-    "sha256": "c8e76419798f60903c703bf2a586060f683e8bbc8ece839e9abc51a8c0c4c1f4"
+    "version": "0.7-test",
+    "versionCode": 7,
+    "sha256": "70e87ef2dafe1bdfbdd646d5334d53eb517f7b584cb6f040d03ea6beec5d99e0"
   }
 }

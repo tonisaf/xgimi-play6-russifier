@@ -30,7 +30,7 @@ public final class RemoteActivity extends Activity {
  public void onServiceDisconnected(ComponentName n){report("disconnected","Сервис отключился");}
  public void onNullBinding(ComponentName n){h.removeCallbacks(timeout);report("null","Пустое подключение");unbind();}
  };
- public void onCreate(Bundle saved){super.onCreate(saved);for(String k:new String[]{"VIDEO0","VIDEO1","VIDEO2","VIDEO3"})android.util.Log.i("BeamRemoteProbe",k+"="+KeyEvent.keyCodeFromString("KEYCODE_"+k));prefs=getSharedPreferences("buttons",MODE_PRIVATE);
+ public void onCreate(Bundle saved){super.onCreate(saved);for(String k:new String[]{"VIDEO0","VIDEO1","VIDEO2","VIDEO3"})android.util.Log.i("BeamRemoteProbe",k+"="+KeyEvent.keyCodeFromString("KEYCODE_"+k));prefs=getSharedPreferences("buttons",MODE_MULTI_PROCESS);
  LinearLayout root=new LinearLayout(this);root.setOrientation(0);root.setPadding(dp(98),dp(42),dp(94),dp(34));root.setBackgroundColor(Color.BLACK);
  LinearLayout left=new LinearLayout(this);left.setOrientation(1);left.setPadding(0,dp(64),dp(40),0);root.addView(left,new LinearLayout.LayoutParams(0,-1,1));
  text(left,"Кнопки пульта",32,0xffeeeeee);TextView sub=text(left,"Выберите кнопку и назначьте приложение",19,0xff929292);sub.setPadding(0,dp(16),0,dp(22));

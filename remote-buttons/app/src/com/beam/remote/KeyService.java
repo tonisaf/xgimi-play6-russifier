@@ -13,7 +13,10 @@ public final class KeyService extends Service {
     final Handler main = new Handler(Looper.getMainLooper());
     HandlerThread thread;
     Handler worker;
-    SharedPreferences prefs;
+    // The assignments screen runs in its own process (":ui"): removing its task from the recents kills only that
+    // process, not this service. The two processes share the file, so it is re-read on every access.
+    @SuppressWarnings("deprecation")
+    SharedPreferences prefs() { return getSharedPreferences("buttons", MODE_MULTI_PROCESS); }
     Connection active; // Main thread only.
     volatile boolean closing;
     long lastKey = -1, lastTime;
@@ -95,7 +98,6 @@ public final class KeyService extends Service {
 
     public void onCreate() {
         super.onCreate();
-        prefs = getSharedPreferences("buttons", MODE_PRIVATE);
         thread = new HandlerThread("RemoteKeysBinder");
         thread.start(); worker = new Handler(thread.getLooper());
         NotificationManager manager = getSystemService(NotificationManager.class);
@@ -124,7 +126,7 @@ public final class KeyService extends Service {
     void synchronize(Connection current) {
         if (!current.live || closing) return;
         Set<Long> wanted = new TreeSet<>();
-        for (int i = 0; i < 4; i++) if (!prefs.getString("button" + i, "").isEmpty()) wanted.add(2118L + i);
+        for (int i = 0; i < 4; i++) if (!prefs().getString("button" + i, "").isEmpty()) wanted.add(2118L + i);
         try {
             if (!current.registry.sync(wanted)) scheduleSync(current);
         } catch (Exception error) {
@@ -176,7 +178,7 @@ public final class KeyService extends Service {
         long now = SystemClock.elapsedRealtime();
         if (lastKey == key && now - lastTime < 400) return;
         lastKey = key; lastTime = now;
-        String action = prefs.getString("button" + index, "");
+        String action = prefs().getString("button" + index, "");
         Log.i(TAG, "key=" + key + " action=" + action);
         try {
             if (action.startsWith("media:")) {
