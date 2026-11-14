@@ -1,7 +1,7 @@
 """Validate and stage one immutable boot generation before activating its APK."""
 import json,re
 from pathlib import Path
-from installer import MANIFEST,q,sha
+from installer import MANIFEST,q,sha,skips_device_check
 
 PACKAGE='com.beam.russifier.boot'
 SERVICE=PACKAGE+'/'+PACKAGE+'.StartupBridge'
@@ -48,4 +48,16 @@ def stage_generation(installer,info,sources):
         script+='  chown root:root '+q(new+'/'+name)+'\n  chmod 644 '+q(new+'/'+name)+'\n'
         if name.endswith('.apk'): script+='  chcon u:object_r:system_file:s0 '+q(new+'/'+name)+'\n'
     script+='  chmod 755 '+q(new)+'\n  mv '+q(new)+' '+q(directory)+'\nfi\n'
+    identity_file = q(directory+'/device-identity')
+    if skips_device_check(installer):
+        props = installer.props
+        identity = props['ro.build.fingerprint']+' '+props['ro.build.version.sdk']
+        script += (
+            'printf "%s\\n" '+q(identity)+' > '+identity_file+'.new\n'
+            'chown root:root '+identity_file+'.new\n'
+            'chmod 644 '+identity_file+'.new\n'
+            'mv -f '+identity_file+'.new '+identity_file+'\n'
+        )
+    else:
+        script += 'rm -f '+identity_file+'\n'
     installer.root(script,'stage-boot-generation')

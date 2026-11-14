@@ -56,8 +56,10 @@ class PreparationTests(unittest.TestCase):
         for x in reversed(self.patchers):x.stop()
         self.temp.cleanup()
     def test_debloat_does_not_touch_home_or_remove_keyboard_without_replacement(self):
+        self.r.packages['com.xgimi.doubanfm']=0
         self.assertEqual(p.prepare(self.r,'Europe/Moscow',True),10)
         self.assertEqual(self.r.packages['com.xgimi.adservice'],3)
+        self.assertEqual(self.r.packages['com.xgimi.doubanfm'],0)
         for k in p.GUARDED:self.assertEqual(self.r.packages[k],0)
         self.assertEqual(self.r.values['timezone'],'Europe/Moscow')
         self.assertEqual(self.r.values['autoZone'],'0')

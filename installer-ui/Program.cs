@@ -50,6 +50,7 @@ namespace XgimiInstaller {
   readonly TextBox ip = new TextBox(), log = new TextBox();
   readonly ListBox tasks = new ListBox();
   readonly ComboBox advanced = new ComboBox(), timezone = new ComboBox();
+  readonly CheckBox skipDeviceCheck = new CheckBox();
   readonly CheckBox services = new CheckBox(), beam = new CheckBox(), remote = new CheckBox();
   readonly Button start = new Button(), backupBrowse = new Button(), toggleLog = new Button();
   readonly Label title = new Label(), description = new Label(), backupLabel = new Label(), banner = new Label();
@@ -112,7 +113,7 @@ namespace XgimiInstaller {
    var root=new TableLayoutPanel { Dock=DockStyle.Fill, Padding=new Padding(20,16,20,16), ColumnCount=1, RowCount=7 };
    Controls.Add(root);
    root.Controls.Add(new Label {Text="Русификация XGIMI Play 6",AutoSize=true,Font=new Font("Segoe UI",20,FontStyle.Bold),Margin=new Padding(0,0,0,0)},0,0);
-   root.Controls.Add(new Label {Text="Прошивка v1.7.116 · Android 11 · перевод 1.19.46 · установщик 1.16",AutoSize=true,ForeColor=Color.DimGray,Margin=new Padding(0,0,0,10)},0,1);
+   root.Controls.Add(new Label {Text="Прошивка v1.7.116 · Android 11 · перевод 1.19.52 · установщик 1.16",AutoSize=true,ForeColor=Color.DimGray,Margin=new Padding(0,0,0,10)},0,1);
 
    // connection
    var connection=new GroupBox {Text=" 1. Подключение ",Dock=DockStyle.Fill,Height=72,Padding=new Padding(12,6,12,8),Margin=new Padding(0,0,0,10)};
@@ -177,6 +178,9 @@ namespace XgimiInstaller {
    beam.Text="Установить лаунчер BEAM (скачивается из интернета; права, кнопка «Домой»)"; beam.AutoSize=true; beam.Margin=new Padding(0,8,0,0); f.Controls.Add(beam);
    remote.Text="Установить модуль кнопок пульта"; remote.AutoSize=true; remote.Margin=new Padding(0,8,0,0); f.Controls.Add(remote);
    var rnote=new Label {Text="Позволяет назначать действия на кнопки пульта. Работает с любым лаунчером.",AutoSize=true,ForeColor=Color.DimGray,Margin=new Padding(22,0,0,0)}; remoteNote=rnote; f.Controls.Add(rnote);
+   skipDeviceCheck.Text="Пропустить проверку модели и версии прошивки";
+   skipDeviceCheck.AutoSize=true; skipDeviceCheck.Margin=new Padding(0,8,0,0);
+   f.Controls.Add(skipDeviceCheck);
    prepare.Controls.Add(f);
   }
   void BuildBackup() {
@@ -208,7 +212,13 @@ namespace XgimiInstaller {
    title.Text=isAdvanced?"Дополнительно":job.Title;
    description.Text=job.Description;
    advanced.Visible=isAdvanced;
-   prepare.Visible=job.Prepare;
+   bool canSkipDeviceCheck=job.Prepare || job.Command=="check" || job.Command=="update-boot"
+     || job.Command=="rollback" || job.Command=="install-remote" || job.Command=="enable-remote"
+     || job.Command=="disable-remote" || job.Command=="undo-prepare" || job.Command=="restore-launchers"
+     || job.Command=="recover-remote";
+   skipDeviceCheck.Visible=canSkipDeviceCheck;
+   prepare.Visible=job.Prepare || canSkipDeviceCheck;
+   zoneRow.Visible=services.Visible=servicesNote.Visible=job.Prepare;
    beam.Visible=job.Beam;
    remote.Visible=remoteNote.Visible=job.Remote;
    start.Text=job.RunText;
@@ -286,7 +296,7 @@ namespace XgimiInstaller {
 
   async Task<List<string>> PickLaunchers(string address,string directory) {
    string output=Path.Combine(directory,Guid.NewGuid().ToString("N")+"-launchers.json");
-   var info=new ProcessStartInfo(Path.Combine(bundle,"runtime","python.exe"),"-I -u "+Quote(Path.Combine(bundle,"launch.py"))+" list-launchers --device "+Quote(address)+" --output "+Quote(output)) {WorkingDirectory=bundle,UseShellExecute=false,CreateNoWindow=true,RedirectStandardOutput=true,RedirectStandardError=true,StandardOutputEncoding=Encoding.UTF8,StandardErrorEncoding=Encoding.UTF8};
+   var info=new ProcessStartInfo(Path.Combine(bundle,"runtime","python.exe"),"-I -u "+Quote(Path.Combine(bundle,"launch.py"))+" list-launchers --device "+Quote(address)+" --output "+Quote(output)+DeviceCheckOption()) {WorkingDirectory=bundle,UseShellExecute=false,CreateNoWindow=true,RedirectStandardOutput=true,RedirectStandardError=true,StandardOutputEncoding=Encoding.UTF8,StandardErrorEncoding=Encoding.UTF8};
    using(var process=new Process {StartInfo=info}) {
     process.Start();var stdout=process.StandardOutput.ReadToEndAsync();var stderr=process.StandardError.ReadToEndAsync();await Task.Run(()=>process.WaitForExit());
     string text=await stdout;string errors=await stderr;
@@ -308,6 +318,7 @@ namespace XgimiInstaller {
   }
 
   /// <summary>Starts launch.py, mirrors its output into the log and returns the exit code and the full output.</summary>
+  string DeviceCheckOption() { return skipDeviceCheck.Visible && skipDeviceCheck.Checked ? " --skip-device-check" : ""; }
   async Task<KeyValuePair<int,string>> RunLaunch(string args) {
    var info=new ProcessStartInfo(Path.Combine(bundle,"runtime","python.exe"),args) {WorkingDirectory=bundle,UseShellExecute=false,CreateNoWindow=true,RedirectStandardOutput=true,RedirectStandardError=true,StandardOutputEncoding=Encoding.UTF8,StandardErrorEncoding=Encoding.UTF8};
    var output=new StringBuilder(); object sync=new object();
@@ -322,7 +333,7 @@ namespace XgimiInstaller {
 
   void Lock(bool locked) {
    running=locked; start.Enabled=!locked; tasks.Enabled=!locked; advanced.Enabled=!locked; ip.Enabled=!locked; backupBrowse.Enabled=!locked;
-   timezone.Enabled=services.Enabled=beam.Enabled=remote.Enabled=!locked;
+   timezone.Enabled=services.Enabled=beam.Enabled=remote.Enabled=skipDeviceCheck.Enabled=!locked;
    progress.Style=locked?ProgressBarStyle.Marquee:ProgressBarStyle.Blocks;
   }
 
@@ -344,7 +355,7 @@ namespace XgimiInstaller {
    string session=Path.Combine(bundle,"ui-logs"); string transcript=Path.Combine(session,DateTime.Now.ToString("yyyyMMdd-HHmmss")+"-"+Guid.NewGuid().ToString("N")+".log");
    try {
     Directory.CreateDirectory(session);
-    string args="-I -u "+Quote(Path.Combine(bundle,"launch.py"))+" "+job.Command+" --device "+Quote(address);
+    string args="-I -u "+Quote(Path.Combine(bundle,"launch.py"))+" "+job.Command+" --device "+Quote(address)+DeviceCheckOption();
     if(job.BackupFile!=null) args+=" --backup "+Quote(backupPath);
     if(job.Plan) args+=" --plan";
     if(job.Prepare) {
@@ -362,14 +373,14 @@ namespace XgimiInstaller {
      bool extras=timezone.SelectedIndex>0||services.Checked||beam.Checked;
      if(MessageBox.Show("Русификатор уже установлен на этом проекторе.\r\n\r\nОбновить его до версии из этого комплекта?"+(extras?"\r\n\r\nПри обновлении язык, часовой пояс, отключение сервисов и BEAM не применяются; их можно выполнить отдельно в «Дополнительно».":""),"Уже установлено",MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.Yes) {
       Append(""); Append("— Обновление установленного русификатора —");
-      run=await RunLaunch("-I -u "+Quote(Path.Combine(bundle,"launch.py"))+" update-boot --device "+Quote(address)); code=run.Key; text+=run.Value; finalCommand="update-boot";
+      run=await RunLaunch("-I -u "+Quote(Path.Combine(bundle,"launch.py"))+" update-boot --device "+Quote(address)+DeviceCheckOption()); code=run.Key; text+=run.Value; finalCommand="update-boot";
      }
     }
     // Everything chosen on the install page is done from one run: the remote-buttons module follows the translation.
     int remoteCode=-1; string remoteText="";
     if(code==0 && job.Remote && remote.Checked) {
      Append(""); Append("— Модуль кнопок пульта —"); SetBanner("info","Выполняется: установка модуля кнопок пульта…");
-     var second=await RunLaunch("-I -u "+Quote(Path.Combine(bundle,"launch.py"))+" install-remote --device "+Quote(address)); remoteCode=second.Key; remoteText=second.Value; text+=remoteText;
+     var second=await RunLaunch("-I -u "+Quote(Path.Combine(bundle,"launch.py"))+" install-remote --device "+Quote(address)+DeviceCheckOption()); remoteCode=second.Key; remoteText=second.Value; text+=remoteText;
     }
     // A first installation is completed with a reboot: until XGIMI's memory rules are loaded (at boot) the system
     // switches the autostart services of fresh packages off within seconds, so they are switched on again afterwards.

@@ -138,6 +138,8 @@ def main():
     parser.add_argument('--device',default=os.environ.get('beamDevice','192.168.1.100:5555'))
     parser.add_argument('--bundle',type=Path,default=BASE/'boot-helper')
     parser.add_argument('--recover',type=Path,help='Каталог runs незавершённого обновления')
+    parser.add_argument('--skip-device-check', action='store_true',
+                        help='Пропустить сравнение модели и прошивки с комплектом')
     args=parser.parse_args()
     installer=None
     try:

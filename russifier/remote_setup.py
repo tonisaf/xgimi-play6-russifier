@@ -1,7 +1,7 @@
 """Install/update the independent remote module, preserving accessibility choices."""
 from pathlib import Path
 import argparse, json, os, re, time
-from installer import BASE, MANIFEST, Installer, q, sha, save
+from installer import BASE, MANIFEST, Installer, q, sha, save, skips_device_check
 from boot_setup import snapshot_policy,apply_policy,restore_policy
 
 PACKAGE = 'com.beam.remote'
@@ -46,7 +46,9 @@ def check_device(installer):
     if installer.command('get-state').stdout.strip() != 'device':
         raise RuntimeError('ADB не авторизован или устройство недоступно')
     props = {k:installer.shell('getprop '+k) for k in ('ro.build.fingerprint','ro.build.version.sdk','ro.serialno')}
-    if props['ro.build.fingerprint'] != MANIFEST['fingerprint'] or props['ro.build.version.sdk'] != MANIFEST['sdk']:
+    if not skips_device_check(installer) and (
+        props['ro.build.fingerprint'] != MANIFEST['fingerprint'] or props['ro.build.version.sdk'] != MANIFEST['sdk']
+    ):
         raise RuntimeError('Модуль кнопок проверен только на Play 6 / v1.7.116')
     if not props['ro.serialno']: raise RuntimeError('Не удалось определить устройство для журнала')
     return props
@@ -154,6 +156,8 @@ def main():
     parser.add_argument('action', choices=('install-remote','enable-remote','disable-remote','recover-remote'))
     parser.add_argument('--device', default=os.environ.get('beamDevice','192.168.1.100:5555'))
     parser.add_argument('--backup', type=Path)
+    parser.add_argument('--skip-device-check', action='store_true',
+                        help='Пропустить сравнение модели и прошивки с комплектом')
     args = parser.parse_args(); installer = Installer(args)
     try:
         if args.action == 'install-remote': install(installer)

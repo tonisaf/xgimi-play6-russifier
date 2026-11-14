@@ -59,6 +59,10 @@ def find_adb():
     raise RuntimeError('Не найден adb. Установите Android platform-tools (команда adb должна запускаться из терминала) '
                        'или укажите путь в переменной окружения XGIMI_ADB.')
 
+def skips_device_check(installer):
+    return getattr(getattr(installer, 'args', None), 'skip_device_check', False)
+
+
 class Installer:
     def __init__(self,args):
         self.args = args
@@ -163,10 +167,13 @@ class Installer:
             'ro.product.device','ro.build.version.sdk','persist.sys.locale','ro.serialno']}
         expected = {'ro.build.fingerprint':MANIFEST['fingerprint'],'ro.product.name':MANIFEST['product'],
                     'ro.product.device':MANIFEST['device'],'ro.build.version.sdk':MANIFEST['sdk']}
-        for key,value in expected.items():
-            if props[key]!=value:
-                raise RuntimeError('Неподдерживаемая модель/прошивка: '+key+'='+props[key])
-        if not props['ro.serialno']:
+        if skips_device_check(self):
+            print('Проверка модели и версии прошивки пропущена по выбору пользователя.', flush=True)
+        else:
+            for key, value in expected.items():
+                if props[key] != value:
+                    raise RuntimeError('Неподдерживаемая модель/прошивка: '+key+'='+props[key])
+        if not props['ro.build.fingerprint'] or not props['ro.build.version.sdk'] or not props['ro.serialno']:
             raise RuntimeError('Не удалось определить серийный номер для резервной копии')
         if strict and not props['persist.sys.locale'].lower().startswith('ru'):
             raise RuntimeError('Сначала выберите русский язык Android и перезапустите проектор')
@@ -199,7 +206,10 @@ class Installer:
         save(self.logs/'preflight.json',{'properties':props,'runtimeSettingsSha256':runtime_hash})
         self.runtime_hash = runtime_hash
         self.props = props
-        print('Совместимо: XGIMI Play 6, v1.7.116, Android 11.',flush=True)
+        if skips_device_check(self):
+            print('Контрольные суммы APK и системные требования проверены.', flush=True)
+        else:
+            print('Совместимо: XGIMI Play 6, v1.7.116, Android 11.', flush=True)
 
     def overlay_states(self):
         output = {}
@@ -524,8 +534,8 @@ class Installer:
             raise RuntimeError('Для этой резервной копии используйте ту же версию установщика: '+str(self.state.get('version')))
         if set(self.state['overlays'])!={v['package'] for v in MANIFEST['overlays']}:
             raise RuntimeError('Набор пакетов в резервной копии отличается от этого установщика')
-        if self.state['identity']['ro.serialno']!=self.props['ro.serialno']:
-            raise RuntimeError('Резервная копия относится к другому проектору')
+        if any(self.state['identity'][key]!=self.props[key] for key in ('ro.serialno','ro.build.fingerprint')):
+            raise RuntimeError('Резервная копия относится к другому проектору или прошивке')
         if self.shell('getprop persist.sys.xgimi.themeV2.url')!=SKIN or self.shell('sha256sum '+q(SKIN)).split()[0]!=MANIFEST['files']['skin.apk']:
             raise RuntimeError('Скин изменён после установки; автоматический откат остановлен')
         # Refuse to overwrite a newer independently installed translation package.
@@ -547,6 +557,8 @@ def main():
     parser.add_argument('--device',default=os.environ.get('beamDevice','192.168.1.100:5555'))
     parser.add_argument('--keep-child',action='store_true',help='Не добавлять скрытие кнопки Детский')
     parser.add_argument('--backup',help='Имя каталога конкретной установки для отката')
+    parser.add_argument('--skip-device-check', action='store_true',
+                        help='Пропустить сравнение модели и прошивки с комплектом')
     args = parser.parse_args()
     install = None
     try:

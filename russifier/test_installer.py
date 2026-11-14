@@ -6,6 +6,17 @@ from unittest.mock import patch
 from installer import Installer, MANIFEST
 
 class InstallFailureTests(unittest.TestCase):
+    def test_skip_device_check_allows_firmware_mismatch_but_checks_apk_hash(self):
+        device = Installer.__new__(Installer)
+        device.args = SimpleNamespace(skip_device_check=True)
+        device.serial = '192.168.1.100:5555'
+        device.command = lambda *args, **kwargs: SimpleNamespace(stdout='device')
+        device.shell = lambda command: 'different-firmware' if command.startswith('getprop ') else '0' * 64
+        device.root = lambda *args: self.fail('Must check original APK hashes before root')
+        with patch('installer.sha', side_effect=lambda path: MANIFEST['files'][path.name]):
+            with self.assertRaisesRegex(RuntimeError, 'Системный APK отличается'):
+                device.preflight(strict=False)
+
     def test_root_cleanup_retries_failed_readback_and_clears_both_properties(self):
         with tempfile.TemporaryDirectory() as tmp:
             i=Installer.__new__(Installer);i.logs=Path(tmp)

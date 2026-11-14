@@ -43,6 +43,8 @@ def launcher_cli():
     parser.add_argument('--device',required=True)
     parser.add_argument('--output',type=Path)
     parser.add_argument('--backup',type=Path)
+    parser.add_argument('--skip-device-check', action='store_true',
+                        help='Пропустить сравнение модели и прошивки с комплектом')
     args=parser.parse_args();r=None
     try:
         r=Installer(args);device=identity(r)

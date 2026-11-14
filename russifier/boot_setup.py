@@ -153,8 +153,6 @@ def check_space(installer,info,sources):
 def identity_guard(installer,record):
     if record.get('version')!=MANIFEST['version'] or record.get('payloadHashes')!=MANIFEST['files']:
         raise RuntimeError('Для удаления нужен комплект той версии, которая сейчас стоит на проекторе (после обновления это комплект последнего обновления)')
-    if installer.shell('getprop ro.build.fingerprint')!=MANIFEST['fingerprint']:
-        raise RuntimeError('Прошивка не поддерживается этим комплектом')
     policy=record['policy']
     if not re.fullmatch(r'[0-9]+:[0-9]+:[0-7]{3,4}',policy['metadata']):
         raise RuntimeError('Некорректные права в журнале OEM-политики')
@@ -262,6 +260,8 @@ def main():
     parser.add_argument('--bundle',type=Path,default=BASE/'boot-helper')
     parser.add_argument('--backup',type=Path,default=os.environ.get('beamBackup') or None)
     parser.add_argument('--keep-child',action='store_true')
+    parser.add_argument('--skip-device-check', action='store_true',
+                        help='Пропустить сравнение модели и прошивки с комплектом')
     args=parser.parse_args();installer=None
     try:
         installer=Installer(args)

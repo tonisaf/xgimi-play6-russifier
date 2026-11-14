@@ -13,7 +13,9 @@
 
 ## Отключаемые сервисы
 
-com.xgimi.adservice, com.xgimi.datareporter, com.xgimi.bugreportsender, com.xgimi.newappmarket, com.xgimi.doubanfm, com.xgimi.duertts, com.xgimi.msgcenter, com.xgimi.payview, com.xgimi.vcontrol, com.xgimi.xgimihilink, com.xgimi.xgimiiotserver.
+com.xgimi.adservice, com.xgimi.datareporter, com.xgimi.bugreportsender, com.xgimi.newappmarket, com.xgimi.duertts, com.xgimi.msgcenter, com.xgimi.payview, com.xgimi.vcontrol, com.xgimi.xgimihilink, com.xgimi.xgimiiotserver.
+
+Режим колонки XGIMI использует службу из `com.xgimi.doubanfm`. Если предыдущий установщик отключил этот пакет, верните его через `adb shell pm default-state --user 0 com.xgimi.doubanfm` и повторно проверьте складывание и звук с телефона.
 
 Sogou отключается только после проверки LeanKey и выбора его текущей клавиатурой. Без рабочей замены Sogou остаётся включённой. Отсутствующие пакеты пропускаются. Сервисы геометрии, системные настройки, звук и Atmosphere не входят в список отключения.
 

@@ -126,7 +126,10 @@ public final class KeyService extends Service {
     void synchronize(Connection current) {
         if (!current.live || closing) return;
         Set<Long> wanted = new TreeSet<>();
-        for (int i = 0; i < 4; i++) if (!prefs().getString("button" + i, "").isEmpty()) wanted.add(2118L + i);
+        SharedPreferences assignments = prefs();
+        for (RemoteButton button : RemoteButton.ALL) {
+            if (!assignments.getString(button.preference, "").isEmpty()) wanted.add(button.code);
+        }
         try {
             if (!current.registry.sync(wanted)) scheduleSync(current);
         } catch (Exception error) {
@@ -174,11 +177,12 @@ public final class KeyService extends Service {
         if (closing) thread.quitSafely();
     }
     void dispatch(long key) {
-        int index = (int)(key - 2118); if (index < 0 || index > 3) return;
+        RemoteButton button = RemoteButton.fromCode(key);
+        if (button == null) return;
         long now = SystemClock.elapsedRealtime();
         if (lastKey == key && now - lastTime < 400) return;
         lastKey = key; lastTime = now;
-        String action = prefs().getString("button" + index, "");
+        String action = prefs().getString(button.preference, "");
         Log.i(TAG, "key=" + key + " action=" + action);
         try {
             if (action.startsWith("media:")) {

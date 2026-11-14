@@ -1,6 +1,6 @@
 #!/system/bin/sh
 umask 022
-D=/data/local/beam-russifier-boot/releases/1.19.46-131b73d6bc232fdc
+D=/data/local/beam-russifier-boot/releases/1.19.52-747e4486563a96ed
 RUN=$(cat /proc/sys/kernel/random/uuid)
 finish() { code=$?; if [ "$(getprop vendor.xgimi.system.debug.cmd)" = "/system/bin/sh $D/apply.sh" ]; then setprop vendor.xgimi.system.debug.cmd ""; setprop vendor.xgimi.system.debugserver ""; fi; printf "%s %s\n" "$RUN" "$code" > "$D/done"; chmod 644 "$D/done"; }
 trap finish EXIT
@@ -8,8 +8,31 @@ exec > "$D/last.log" 2>&1
 set -e
 echo "boot=$(cat /proc/sys/kernel/random/boot_id)"
 id
-test "$(getprop ro.build.fingerprint)" = XGIMI/Product_dayao/dragon_healthy:11/RP1A.200720.011/v1.7.116:user/dev-keys
-test "$(getprop ro.build.version.sdk)" = 30
+DEVICE_IDENTITY="$(getprop ro.build.fingerprint) $(getprop ro.build.version.sdk)"
+if [ "$DEVICE_IDENTITY" != 'XGIMI/Product_dayao/dragon_healthy:11/RP1A.200720.011/v1.7.116:user/dev-keys 30' ]; then
+  test -f "$D/device-identity" && test "$DEVICE_IDENTITY" = "$(cat "$D/device-identity")" || exit 11
+  test "$(sha256sum /system/priv-app/release_838_newsettings/release_838_newsettings.apk | cut -d " " -f 1)" = 15a871680fef952e7f29365643e18e6cfab25e6cd523fa8aadc52c6eeffa84a1
+  test "$(sha256sum /system/priv-app/SystemUI_release_838/SystemUI_release_838.apk | cut -d " " -f 1)" = 740321166c5e3703e52dd2a1ea55de38a146bc6ea3624f2dd221f0ceacc14308
+  test "$(sha256sum /vendor/priv-app/Atmosphere_release838/Atmosphere_release838.apk | cut -d " " -f 1)" = a0638a3db737357c619b60b43175b4c4bf31d614b172c548a82d5d855ff2d9eb
+  test "$(sha256sum /vendor/priv-app/release_838_shutdown/release_838_shutdown.apk | cut -d " " -f 1)" = 6b2e3298157de17091d6fd69093181733b6038aa9c107571f53439db98705d23
+  test "$(sha256sum /vendor/priv-app/smartaccessories_release_838/smartaccessories_release_838.apk | cut -d " " -f 1)" = 7390ca0e4d474e9ef79ba31adf53229135acdfed8fd0a501e893d101c15c26bc
+  test "$(sha256sum /system/priv-app/XgimiOtaAccessories_release848/XgimiOtaAccessories_release848.apk | cut -d " " -f 1)" = 62ee3ac5cd4e70f2b98d7cf30d9c5a4996588024dad0faf99e47ed68fc57f88d
+  test "$(sha256sum /vendor/priv-app/xgimiiotserver_release_838/xgimiiotserver_release_838.apk | cut -d " " -f 1)" = 871d78c86a4d72445bdace1934e8375e3a97390c50ba25815db4b35aaafe2d03
+  test "$(sha256sum /vendor/priv-app/update/update.apk | cut -d " " -f 1)" = 9e42ca671911ec1db739e4c3c16179b66583b09cdaa0e6d35bc660393a872a6d
+  test "$(sha256sum /vendor/priv-app/wirelessscreen/wirelessscreen.apk | cut -d " " -f 1)" = 061191874aa6aca4e747b27b25a5c3bb8937451572fb36d9f8e76c82ec63785a
+  test "$(sha256sum /vendor/priv-app/Instruction_release838/Instruction_release838.apk | cut -d " " -f 1)" = ab452a3f89151e57afd130376f1242813f50476e6a70a1470921a0ec00e8f821
+  test "$(sha256sum /vendor/priv-app/XgimiManager_release838/XgimiManager_release838.apk | cut -d " " -f 1)" = 2401bfa54ca98499a706d9f6f9c476971ba06a648d78865468b496e9b06bd9dd
+  test "$(sha256sum /vendor/priv-app/GMService_release838/GMService_release838.apk | cut -d " " -f 1)" = 5d3d6444bcf8ffb4717db81a3f36b44fdf655df045d8cb921ee3ffbd4753f797
+  test "$(sha256sum /vendor/priv-app/AccountCenter_release838/AccountCenter_release838.apk | cut -d " " -f 1)" = e07dc54411904c9db7a21f90ac96b665cc4c1b8c6b8d43721e7b5ee89637bc19
+  test "$(sha256sum /vendor/app/XgimiFrameworkUi/XgimiFrameworkUi.apk | cut -d " " -f 1)" = 9869ccf062ded8c37e399618ad909f48317a2df079dfa88daab25ec9bbaa978a
+  test "$(sha256sum /system/framework/framework-res.apk | cut -d " " -f 1)" = 82b06bd7cba9faf3acbdbaf409b7b514e3559209acc18cd99026844ca86f5f66
+  test "$(sha256sum /vendor/priv-app/GlobalConfig_release838/GlobalConfig_release838.apk | cut -d " " -f 1)" = 1c83c3c170d5899aab8a2c4cb10959b649c202dc00e328464a219690bdd9aede
+  test "$(sha256sum /system/priv-app/XRMService/XRMService.apk | cut -d " " -f 1)" = 40274f5049bd450047ac43cb049b5a120dd2c145964f7722f7cb5c70e07c6048
+  test "$(sha256sum /system/priv-app/NewSounderMode/NewSounderMode.apk | cut -d " " -f 1)" = 4634cf008a1926de7dc231717a988635a4f568f0599170ec715372ae4f6edc33
+  test "$(sha256sum /vendor/priv-app/vcontrol_release838/vcontrol_release838.apk | cut -d " " -f 1)" = 3f588ddc4dc362be833f9d5960d69a5864d9c77bedcfd87cda30af7ca2f2abe7
+  test "$(sha256sum /vendor/priv-app/mediaPlayer_release838/mediaPlayer_release838.apk | cut -d " " -f 1)" = 629387b9eec7f0bd6d200f59fc0e89584d4dbf1e96b7aea75dd73374efc603fd
+  test "$(sha256sum /vendor/priv-app/XgimiMusicPlayer_no_u3dRelease838/XgimiMusicPlayer_no_u3dRelease838.apk | cut -d " " -f 1)" = cd3a7b30c8aa6170b2d5a89b1872bebff794e39a30c3c335ca51bc1261904d6e
+fi
 test "$(getprop persist.sys.locale)" = ru-RU
 test "$(getenforce)" = Permissive
 echo "start_uptime=$(cut -d " " -f 1 /proc/uptime) boot_completed=$(getprop sys.boot_completed)"
@@ -29,8 +52,8 @@ up() { UPN=$(</proc/uptime); UPN=${UPN%% *}; }
 SIGF='%n %s:%Y:%d:%i'
 # Lookup tables are shell variables filled by one awk each; names are the key with every non-alphanumeric turned into "_".
 mkvars() { awk -v p="$1" '{k=$1; gsub(/[^A-Za-z0-9]/,"_",k); print p k "=\x27" $2 "\x27"}'; }
-eval "$(stat -c "$SIGF" "$D/panel.apk" "$D/wirelessscreen-native.apk" "$D/gmservice-native.apk" "$D/systemui-native.apk" "$D/atmosphere-native.apk" "$D/upgrade-native.apk" "$D/shutdown-native.apk" "$D/manager-native.apk" "$D/ota-accessories-native.apk" "$D/skin.apk" /system/priv-app/release_838_newsettings/release_838_newsettings.apk /system/priv-app/SystemUI_release_838/SystemUI_release_838.apk /vendor/priv-app/Atmosphere_release838/Atmosphere_release838.apk /vendor/priv-app/release_838_shutdown/release_838_shutdown.apk /vendor/priv-app/smartaccessories_release_838/smartaccessories_release_838.apk /system/priv-app/XgimiOtaAccessories_release848/XgimiOtaAccessories_release848.apk /vendor/priv-app/xgimiiotserver_release_838/xgimiiotserver_release_838.apk /vendor/priv-app/update/update.apk /vendor/priv-app/wirelessscreen/wirelessscreen.apk /vendor/priv-app/Instruction_release838/Instruction_release838.apk /vendor/priv-app/XgimiManager_release838/XgimiManager_release838.apk /vendor/priv-app/GMService_release838/GMService_release838.apk /vendor/priv-app/AccountCenter_release838/AccountCenter_release838.apk /system/framework/framework-res.apk /vendor/priv-app/GlobalConfig_release838/GlobalConfig_release838.apk /system/priv-app/XRMService/XRMService.apk /system/priv-app/NewSounderMode/NewSounderMode.apk /vendor/app/XgimiFrameworkUi/XgimiFrameworkUi.apk /vendor/priv-app/vcontrol_release838/vcontrol_release838.apk /vendor/priv-app/mediaPlayer_release838/mediaPlayer_release838.apk 2>/dev/null | mkvars SG_)"
-eval "$(nsenter -t "$zyg" -m -- stat -c "$SIGF" /system/priv-app/release_838_newsettings/release_838_newsettings.apk /system/priv-app/SystemUI_release_838/SystemUI_release_838.apk /vendor/priv-app/Atmosphere_release838/Atmosphere_release838.apk /vendor/priv-app/release_838_shutdown/release_838_shutdown.apk /vendor/priv-app/smartaccessories_release_838/smartaccessories_release_838.apk /system/priv-app/XgimiOtaAccessories_release848/XgimiOtaAccessories_release848.apk /vendor/priv-app/xgimiiotserver_release_838/xgimiiotserver_release_838.apk /vendor/priv-app/update/update.apk /vendor/priv-app/wirelessscreen/wirelessscreen.apk /vendor/priv-app/Instruction_release838/Instruction_release838.apk /vendor/priv-app/XgimiManager_release838/XgimiManager_release838.apk /vendor/priv-app/GMService_release838/GMService_release838.apk /vendor/priv-app/AccountCenter_release838/AccountCenter_release838.apk /system/framework/framework-res.apk /vendor/priv-app/GlobalConfig_release838/GlobalConfig_release838.apk /system/priv-app/XRMService/XRMService.apk /system/priv-app/NewSounderMode/NewSounderMode.apk /vendor/app/XgimiFrameworkUi/XgimiFrameworkUi.apk /vendor/priv-app/vcontrol_release838/vcontrol_release838.apk /vendor/priv-app/mediaPlayer_release838/mediaPlayer_release838.apk 2>/dev/null | mkvars NS_)"
+eval "$(stat -c "$SIGF" "$D/panel.apk" "$D/wirelessscreen-native.apk" "$D/gmservice-native.apk" "$D/systemui-native.apk" "$D/atmosphere-native.apk" "$D/upgrade-native.apk" "$D/shutdown-native.apk" "$D/manager-native.apk" "$D/ota-accessories-native.apk" "$D/resolver-native.apk" "$D/douban-native.apk" "$D/skin.apk" /system/priv-app/release_838_newsettings/release_838_newsettings.apk /system/priv-app/SystemUI_release_838/SystemUI_release_838.apk /vendor/priv-app/Atmosphere_release838/Atmosphere_release838.apk /vendor/priv-app/release_838_shutdown/release_838_shutdown.apk /vendor/priv-app/smartaccessories_release_838/smartaccessories_release_838.apk /system/priv-app/XgimiOtaAccessories_release848/XgimiOtaAccessories_release848.apk /vendor/priv-app/xgimiiotserver_release_838/xgimiiotserver_release_838.apk /vendor/priv-app/update/update.apk /vendor/priv-app/wirelessscreen/wirelessscreen.apk /vendor/priv-app/Instruction_release838/Instruction_release838.apk /vendor/priv-app/XgimiManager_release838/XgimiManager_release838.apk /vendor/priv-app/GMService_release838/GMService_release838.apk /vendor/priv-app/AccountCenter_release838/AccountCenter_release838.apk /vendor/app/XgimiFrameworkUi/XgimiFrameworkUi.apk /system/framework/framework-res.apk /vendor/priv-app/GlobalConfig_release838/GlobalConfig_release838.apk /system/priv-app/XRMService/XRMService.apk /system/priv-app/NewSounderMode/NewSounderMode.apk /vendor/priv-app/vcontrol_release838/vcontrol_release838.apk /vendor/priv-app/mediaPlayer_release838/mediaPlayer_release838.apk /vendor/priv-app/XgimiMusicPlayer_no_u3dRelease838/XgimiMusicPlayer_no_u3dRelease838.apk 2>/dev/null | mkvars SG_)"
+eval "$(nsenter -t "$zyg" -m -- stat -c "$SIGF" /system/priv-app/release_838_newsettings/release_838_newsettings.apk /system/priv-app/SystemUI_release_838/SystemUI_release_838.apk /vendor/priv-app/Atmosphere_release838/Atmosphere_release838.apk /vendor/priv-app/release_838_shutdown/release_838_shutdown.apk /vendor/priv-app/smartaccessories_release_838/smartaccessories_release_838.apk /system/priv-app/XgimiOtaAccessories_release848/XgimiOtaAccessories_release848.apk /vendor/priv-app/xgimiiotserver_release_838/xgimiiotserver_release_838.apk /vendor/priv-app/update/update.apk /vendor/priv-app/wirelessscreen/wirelessscreen.apk /vendor/priv-app/Instruction_release838/Instruction_release838.apk /vendor/priv-app/XgimiManager_release838/XgimiManager_release838.apk /vendor/priv-app/GMService_release838/GMService_release838.apk /vendor/priv-app/AccountCenter_release838/AccountCenter_release838.apk /vendor/app/XgimiFrameworkUi/XgimiFrameworkUi.apk /system/framework/framework-res.apk /vendor/priv-app/GlobalConfig_release838/GlobalConfig_release838.apk /system/priv-app/XRMService/XRMService.apk /system/priv-app/NewSounderMode/NewSounderMode.apk /vendor/priv-app/vcontrol_release838/vcontrol_release838.apk /vendor/priv-app/mediaPlayer_release838/mediaPlayer_release838.apk /vendor/priv-app/XgimiMusicPlayer_no_u3dRelease838/XgimiMusicPlayer_no_u3dRelease838.apk 2>/dev/null | mkvars NS_)"
 if [ "$FULL" != 1 ]; then eval "$(awk '{k=$1 "_" $2; gsub(/[^A-Za-z0-9]/,"_",k); print "HC_" k "=\x27" $3 "\x27"}' "$HC")"; fi
 get() { eval "echo \"\${$1:-}\""; }
 sig() { s=$(get "SG_${1//[!A-Za-z0-9]/_}"); if [ -z "$s" ]; then s=$(stat -c "%s:%Y:%d:%i" "$1" 2>/dev/null || true); fi; echo "$s"; }
@@ -56,6 +79,8 @@ check_hash2 "$D/upgrade-native.apk" aad7684e0f3ddc6dbc92f6e7d6a25596d6509bc2e56f
 check_hash2 "$D/shutdown-native.apk" 68f278b2ed83f078119fbf62e2b0fc8ea8a156d848b51497a3b526da9af245a4
 check_hash2 "$D/manager-native.apk" e0ea357228d4d908fd19dcbd1d5bcdeadfd34db9c63d30b9fd2d2bc4f56a8da9
 check_hash2 "$D/ota-accessories-native.apk" 22f3d1d83c96b41514082480e8019a9f90712b026ca69a4b82dfbbe1651ee993
+check_hash2 "$D/resolver-native.apk" bfe58b93af5d17b5327fd72a852716723b8811354bd5f01c563d3df67074cdd7
+check_hash2 "$D/douban-native.apk" dd2ab148ddbb0eeac16b7386652883d62ba05945bac1d420bc8266eef98a0835
 check_hash2 "$D/skin.apk" 102a848f421e2954f6feb98e4fe6ad3ed14c6a55464579c55a65778b5e56c2a1
 rt_hash /system/priv-app/release_838_newsettings/release_838_newsettings.apk; NATIVE_0=$RH
 case "$NATIVE_0" in 15a871680fef952e7f29365643e18e6cfab25e6cd523fa8aadc52c6eeffa84a1|e01f5d788bf7b8e7d15313ef6906e0458217babbe86d5a38702ae299af92ff78|3c60e71c641cd319ae7353c8d1565c4282c59996dd362a58e83d833f4c36c859|6b3b6ec5c7ef8c86ed1c04d1436b28242a2a50839f6f5c6166b2fe48de4fa11f|0aeaa5c1d77f29d5b818abf047322d669f96c2400684dfad9147580356f7013d|44e06a37ddc4b6680c2a39141550c29cf7d02d2365b660d72409bba9505b2683|5166aab4c90b061d038c3ee18832e161421dccdc234d100d428c3d9d2d1f70cd|25bfc0f5b296bf9d487fc3da61b62e2c423df6016f320385a0a213369f5714ab|54cb31fae61e190777ab000c29e26353447b55d12150d4df2356dd77ed6c3969|8f634046e97ced0073b85826c08946535bfcb87800d95e20b8ba2a48acb7bd89|a3973200bbcacb7a5523098df25afc4f04e93466d9bbf761a6b431a7f53774fb|a901619a3559e19bf62764b89816eb0d026db6fbc4cde453b54cb0cf52a97e2f|98772d83d4724c3a6a9b45dcb4381e87b0a86ba6bb684d40d4117e84e2c72b25|96b545f76c6252357e4b12ce118c282b33daa7650d3158e1122245f07bacb463|75e2e34da642173b07a86845246cabf10b77f2eb688e623260e1783ce70e172d|79a62b05926a8c15ad6c10757bb7335cabee7107b8889ae89d4960220a844b45|4f05114a1cef4326cc92cb8f063209b4b9efc206aaeb037e9a5d809b7d568a3d|ee3c31947c85a2ea9dbb98a9b33329355c6c3725f04aef2a3f17f36b7bd96b9b) : ;; *) echo 'Unexpected APK: com.android.newsettings'; exit 12 ;; esac
@@ -75,6 +100,10 @@ rt_hash /vendor/priv-app/XgimiManager_release838/XgimiManager_release838.apk; NA
 case "$NATIVE_7" in 2401bfa54ca98499a706d9f6f9c476971ba06a648d78865468b496e9b06bd9dd|e0ea357228d4d908fd19dcbd1d5bcdeadfd34db9c63d30b9fd2d2bc4f56a8da9) : ;; *) echo 'Unexpected APK: com.xgimi.manager'; exit 12 ;; esac
 rt_hash /system/priv-app/XgimiOtaAccessories_release848/XgimiOtaAccessories_release848.apk; NATIVE_8=$RH
 case "$NATIVE_8" in 62ee3ac5cd4e70f2b98d7cf30d9c5a4996588024dad0faf99e47ed68fc57f88d|22f3d1d83c96b41514082480e8019a9f90712b026ca69a4b82dfbbe1651ee993) : ;; *) echo 'Unexpected APK: com.xgimi.ota.accessories'; exit 12 ;; esac
+rt_hash /vendor/app/XgimiFrameworkUi/XgimiFrameworkUi.apk; NATIVE_9=$RH
+case "$NATIVE_9" in 9869ccf062ded8c37e399618ad909f48317a2df079dfa88daab25ec9bbaa978a|bfe58b93af5d17b5327fd72a852716723b8811354bd5f01c563d3df67074cdd7) : ;; *) echo 'Unexpected APK: com.xgimi.xgimiframeworkui'; exit 12 ;; esac
+rt_hash /vendor/priv-app/XgimiMusicPlayer_no_u3dRelease838/XgimiMusicPlayer_no_u3dRelease838.apk; NATIVE_10=$RH
+case "$NATIVE_10" in cd3a7b30c8aa6170b2d5a89b1872bebff794e39a30c3c335ca51bc1261904d6e|dd2ab148ddbb0eeac16b7386652883d62ba05945bac1d420bc8266eef98a0835) : ;; *) echo 'Unexpected APK: com.xgimi.doubanfm'; exit 12 ;; esac
 up; S_NV=$UPN; echo "native_validated_uptime=$S_NV"
 OLD_SKIN=$(getprop persist.sys.xgimi.themeV2.url)
 setprop persist.sys.xgimi.themeV2.url "$D/skin.apk"
@@ -197,8 +226,34 @@ if [ "$needs_restart" = 1 ]; then
   case "$NL$PSN$NL" in *"${NL}com.xgimi.ota.accessories${NL}"*|*"${NL}com.xgimi.ota.accessories:"*) am force-stop com.xgimi.ota.accessories & ;; esac
 fi
 up; echo "t_native_8=$UPN"
+sigv "$D/resolver-native.apk"; OURS_9=${REPLY#*:*:}
+nsigv /vendor/app/XgimiFrameworkUi/XgimiFrameworkUi.apk; if [ "${REPLY#*:*:}" != "$OURS_9" ]; then
+  nsenter -t "$zyg" -m -- mount -o bind "$D/resolver-native.apk" /vendor/app/XgimiFrameworkUi/XgimiFrameworkUi.apk
+fi
+needs_restart=0
+if [ "$NATIVE_9" != bfe58b93af5d17b5327fd72a852716723b8811354bd5f01c563d3df67074cdd7 ]; then needs_restart=1; fi
+for p in $(pidof com.xgimi.xgimiframeworkui || true); do
+  if [ "$(nsenter -t "$p" -m -- stat -c %d:%i /vendor/app/XgimiFrameworkUi/XgimiFrameworkUi.apk)" != "$OURS_9" ]; then needs_restart=1; fi
+done
+if [ "$needs_restart" = 1 ]; then
+  case "$NL$PSN$NL" in *"${NL}com.xgimi.xgimiframeworkui${NL}"*|*"${NL}com.xgimi.xgimiframeworkui:"*) am force-stop com.xgimi.xgimiframeworkui & ;; esac
+fi
+up; echo "t_native_9=$UPN"
+sigv "$D/douban-native.apk"; OURS_10=${REPLY#*:*:}
+nsigv /vendor/priv-app/XgimiMusicPlayer_no_u3dRelease838/XgimiMusicPlayer_no_u3dRelease838.apk; if [ "${REPLY#*:*:}" != "$OURS_10" ]; then
+  nsenter -t "$zyg" -m -- mount -o bind "$D/douban-native.apk" /vendor/priv-app/XgimiMusicPlayer_no_u3dRelease838/XgimiMusicPlayer_no_u3dRelease838.apk
+fi
+needs_restart=0
+if [ "$NATIVE_10" != dd2ab148ddbb0eeac16b7386652883d62ba05945bac1d420bc8266eef98a0835 ]; then needs_restart=1; fi
+for p in $(pidof com.xgimi.doubanfm || true); do
+  if [ "$(nsenter -t "$p" -m -- stat -c %d:%i /vendor/priv-app/XgimiMusicPlayer_no_u3dRelease838/XgimiMusicPlayer_no_u3dRelease838.apk)" != "$OURS_10" ]; then needs_restart=1; fi
+done
+if [ "$needs_restart" = 1 ]; then
+  case "$NL$PSN$NL" in *"${NL}com.xgimi.doubanfm${NL}"*|*"${NL}com.xgimi.doubanfm:"*) am force-stop com.xgimi.doubanfm & ;; esac
+fi
+up; echo "t_native_10=$UPN"
 wait
-NSV=$(nsenter -t "$zyg" -m -- stat -c "%n %d:%i" /system/priv-app/release_838_newsettings/release_838_newsettings.apk /vendor/priv-app/wirelessscreen/wirelessscreen.apk /vendor/priv-app/GMService_release838/GMService_release838.apk /system/priv-app/SystemUI_release_838/SystemUI_release_838.apk /vendor/priv-app/Atmosphere_release838/Atmosphere_release838.apk /vendor/priv-app/update/update.apk /vendor/priv-app/release_838_shutdown/release_838_shutdown.apk /vendor/priv-app/XgimiManager_release838/XgimiManager_release838.apk /system/priv-app/XgimiOtaAccessories_release848/XgimiOtaAccessories_release848.apk)
+NSV=$(nsenter -t "$zyg" -m -- stat -c "%n %d:%i" /system/priv-app/release_838_newsettings/release_838_newsettings.apk /vendor/priv-app/wirelessscreen/wirelessscreen.apk /vendor/priv-app/GMService_release838/GMService_release838.apk /system/priv-app/SystemUI_release_838/SystemUI_release_838.apk /vendor/priv-app/Atmosphere_release838/Atmosphere_release838.apk /vendor/priv-app/update/update.apk /vendor/priv-app/release_838_shutdown/release_838_shutdown.apk /vendor/priv-app/XgimiManager_release838/XgimiManager_release838.apk /system/priv-app/XgimiOtaAccessories_release848/XgimiOtaAccessories_release848.apk /vendor/app/XgimiFrameworkUi/XgimiFrameworkUi.apk /vendor/priv-app/XgimiMusicPlayer_no_u3dRelease838/XgimiMusicPlayer_no_u3dRelease838.apk)
 eval "$(echo "$NSV" | mkvars NSV_)"
 test "${NSV__system_priv_app_release_838_newsettings_release_838_newsettings_apk:-}" = "$OURS_0"
 test "${NSV__vendor_priv_app_wirelessscreen_wirelessscreen_apk:-}" = "$OURS_1"
@@ -209,6 +264,8 @@ test "${NSV__vendor_priv_app_update_update_apk:-}" = "$OURS_5"
 test "${NSV__vendor_priv_app_release_838_shutdown_release_838_shutdown_apk:-}" = "$OURS_6"
 test "${NSV__vendor_priv_app_XgimiManager_release838_XgimiManager_release838_apk:-}" = "$OURS_7"
 test "${NSV__system_priv_app_XgimiOtaAccessories_release848_XgimiOtaAccessories_release848_apk:-}" = "$OURS_8"
+test "${NSV__vendor_app_XgimiFrameworkUi_XgimiFrameworkUi_apk:-}" = "$OURS_9"
+test "${NSV__vendor_priv_app_XgimiMusicPlayer_no_u3dRelease838_XgimiMusicPlayer_no_u3dRelease838_apk:-}" = "$OURS_10"
 up; S_NR=$UPN; echo "native_ready_uptime=$S_NR boot_completed=$(getprop sys.boot_completed)"
 for p in $(pidof com.android.newsettings || true); do
   test "$(nsenter -t "$p" -m -- stat -c %d:%i /system/priv-app/release_838_newsettings/release_838_newsettings.apk)" = "$OURS_0"
@@ -248,6 +305,14 @@ for p in $(pidof com.xgimi.ota.accessories || true); do
   test "$(nsenter -t "$p" -m -- stat -c %d:%i /system/priv-app/XgimiOtaAccessories_release848/XgimiOtaAccessories_release848.apk)" = "$OURS_8"
 done
 up; echo "t_post_ota=$UPN"
+for p in $(pidof com.xgimi.xgimiframeworkui || true); do
+  test "$(nsenter -t "$p" -m -- stat -c %d:%i /vendor/app/XgimiFrameworkUi/XgimiFrameworkUi.apk)" = "$OURS_9"
+done
+up; echo "t_post_resolver=$UPN"
+for p in $(pidof com.xgimi.doubanfm || true); do
+  test "$(nsenter -t "$p" -m -- stat -c %d:%i /vendor/priv-app/XgimiMusicPlayer_no_u3dRelease838/XgimiMusicPlayer_no_u3dRelease838.apk)" = "$OURS_10"
+done
+up; echo "t_post_douban=$UPN"
 up; echo "t_orig_start=$UPN"
 rt_hash /vendor/priv-app/smartaccessories_release_838/smartaccessories_release_838.apk; test "$RH" = 7390ca0e4d474e9ef79ba31adf53229135acdfed8fd0a501e893d101c15c26bc
 rt_hash /vendor/priv-app/xgimiiotserver_release_838/xgimiiotserver_release_838.apk; test "$RH" = 871d78c86a4d72445bdace1934e8375e3a97390c50ba25815db4b35aaafe2d03
@@ -257,7 +322,6 @@ rt_hash /system/framework/framework-res.apk; test "$RH" = 82b06bd7cba9faf3acbdba
 rt_hash /vendor/priv-app/GlobalConfig_release838/GlobalConfig_release838.apk; test "$RH" = 1c83c3c170d5899aab8a2c4cb10959b649c202dc00e328464a219690bdd9aede
 rt_hash /system/priv-app/XRMService/XRMService.apk; test "$RH" = 40274f5049bd450047ac43cb049b5a120dd2c145964f7722f7cb5c70e07c6048
 rt_hash /system/priv-app/NewSounderMode/NewSounderMode.apk; test "$RH" = 4634cf008a1926de7dc231717a988635a4f568f0599170ec715372ae4f6edc33
-rt_hash /vendor/app/XgimiFrameworkUi/XgimiFrameworkUi.apk; test "$RH" = 9869ccf062ded8c37e399618ad909f48317a2df079dfa88daab25ec9bbaa978a
 rt_hash /vendor/priv-app/vcontrol_release838/vcontrol_release838.apk; test "$RH" = 3f588ddc4dc362be833f9d5960d69a5864d9c77bedcfd87cda30af7ca2f2abe7
 rt_hash /vendor/priv-app/mediaPlayer_release838/mediaPlayer_release838.apk; test "$RH" = 629387b9eec7f0bd6d200f59fc0e89584d4dbf1e96b7aea75dd73374efc603fd
 up; echo "t_orig_done=$UPN"
@@ -274,7 +338,7 @@ ov_index_pm() {
 }
 ov_load() {
   OVFILES=""
-  for pk in com.beam.translation.systemui com.beam.translation.settings com.beam.translation.ambient com.beam.translation.atmosphere com.beam.translation.shutdown com.beam.translation.smartaccessories com.beam.translation.otaaccessories com.beam.translation.xgimiiotserver com.beam.translation.upgrade com.beam.translation.wirelessscreen com.beam.translation.instruction30 com.beam.translation.manager com.beam.translation.gmservice com.beam.translation.user com.beam.translation.frameworkpower com.beam.translation.config com.beam.translation.xrmservice com.beam.translation.soundermodeservice com.beam.translation.xgimiframeworkui com.beam.translation.vcontrol com.beam.translation.gimiplayer; do eval "p=\${OV_${pk//[!A-Za-z0-9]/_}:-}"; k=${p#/}; OVFILES="$OVFILES $p /data/resource-cache/${k//\//@}@idmap"; done
+  for pk in com.beam.translation.systemui com.beam.translation.settings com.beam.translation.ambient com.beam.translation.atmosphere com.beam.translation.shutdown com.beam.translation.smartaccessories com.beam.translation.otaaccessories com.beam.translation.xgimiiotserver com.beam.translation.upgrade com.beam.translation.wirelessscreen com.beam.translation.instruction30 com.beam.translation.manager com.beam.translation.gmservice com.beam.translation.user com.beam.translation.frameworkpower com.beam.translation.config com.beam.translation.xrmservice com.beam.translation.soundermodeservice com.beam.translation.xgimiframeworkui com.beam.translation.vcontrol com.beam.translation.gimiplayer com.beam.translation.doubanfm; do eval "p=\${OV_${pk//[!A-Za-z0-9]/_}:-}"; k=${p#/}; OVFILES="$OVFILES $p /data/resource-cache/${k//\//@}@idmap"; done
   eval "$(stat -c "$SIGF" $OVFILES 2>/dev/null | mkvars SG_)"
 }
 ov_check() {
@@ -299,9 +363,10 @@ ov_check() {
   eval "OVERLAY=\${OV_com_beam_translation_xgimiframeworkui:-}"; test -f "$OVERLAY" || return 1; check_hash2 "$OVERLAY" ad1e9a23f9b2c59558c8f6f8c39a34ec8ab6fc557f63d2c2998113a80e928db0 || return 1
   eval "OVERLAY=\${OV_com_beam_translation_vcontrol:-}"; test -f "$OVERLAY" || return 1; check_hash2 "$OVERLAY" 93e1bbe63cf7bcbff2611642a377c471dd4dbeafeed9422bfdae1158847469c8 || return 1
   eval "OVERLAY=\${OV_com_beam_translation_gimiplayer:-}"; test -f "$OVERLAY" || return 1; check_hash2 "$OVERLAY" 659968e57b1e06004afb2085afc4b553acc636bb60c12026905fe750e6d68d26 || return 1
+  eval "OVERLAY=\${OV_com_beam_translation_doubanfm:-}"; test -f "$OVERLAY" || return 1; check_hash2 "$OVERLAY" 1dcc38f93a9f08523ac31c987ec3acf6547a3d7bca1c5fd0c49495b8d5204e87 || return 1
 }
 ov_cache_load() { if [ -f "$OVC" ]; then eval "$(awk '{k=$1; gsub(/[^A-Za-z0-9]/,"_",k); print "OV_" k "=\x27" $2 "\x27"}' "$OVC")"; fi; }
-ov_cache_save() { for pk in com.beam.translation.systemui com.beam.translation.settings com.beam.translation.ambient com.beam.translation.atmosphere com.beam.translation.shutdown com.beam.translation.smartaccessories com.beam.translation.otaaccessories com.beam.translation.xgimiiotserver com.beam.translation.upgrade com.beam.translation.wirelessscreen com.beam.translation.instruction30 com.beam.translation.manager com.beam.translation.gmservice com.beam.translation.user com.beam.translation.frameworkpower com.beam.translation.config com.beam.translation.xrmservice com.beam.translation.soundermodeservice com.beam.translation.xgimiframeworkui com.beam.translation.vcontrol com.beam.translation.gimiplayer; do eval "p=\${OV_${pk//[!A-Za-z0-9]/_}:-}"; echo "$pk $p"; done > "$OVC.new" && mv "$OVC.new" "$OVC"; chmod 600 "$OVC"; }
+ov_cache_save() { for pk in com.beam.translation.systemui com.beam.translation.settings com.beam.translation.ambient com.beam.translation.atmosphere com.beam.translation.shutdown com.beam.translation.smartaccessories com.beam.translation.otaaccessories com.beam.translation.xgimiiotserver com.beam.translation.upgrade com.beam.translation.wirelessscreen com.beam.translation.instruction30 com.beam.translation.manager com.beam.translation.gmservice com.beam.translation.user com.beam.translation.frameworkpower com.beam.translation.config com.beam.translation.xrmservice com.beam.translation.soundermodeservice com.beam.translation.xgimiframeworkui com.beam.translation.vcontrol com.beam.translation.gimiplayer com.beam.translation.doubanfm; do eval "p=\${OV_${pk//[!A-Za-z0-9]/_}:-}"; echo "$pk $p"; done > "$OVC.new" && mv "$OVC.new" "$OVC"; chmod 600 "$OVC"; }
 OVC=$ROOTDIR/ovpaths
 OV_SOURCE=cache
 ov_cache_load; ov_load; up; echo "t_ovload=$UPN"
@@ -608,6 +673,20 @@ if [ -n "$want" ] && [ "$want" = "$have" ] && [ "$EN" = 1 ]; then IDMAP_SKIPPED=
   chmod 644 "$CACHE"
   cache_put "idmap:$CACHE" "$OSIG" "$(stat -c %s:%Y:%d:%i "$CACHE")"
   cmd overlay enable --user 0 com.beam.translation.gimiplayer
+  IDMAP_DONE=$((IDMAP_DONE+1))
+fi
+eval "OVERLAY=\${OV_com_beam_translation_doubanfm}"
+k=${OVERLAY#/}; CACHE=/data/resource-cache/${k//\//@}@idmap
+sigv "$OVERLAY"; OSIG=$REPLY; sigv /vendor/priv-app/XgimiMusicPlayer_no_u3dRelease838/XgimiMusicPlayer_no_u3dRelease838.apk; OSIG="$OSIG|$REPLY"
+CK="idmap:${CACHE}_$OSIG"; eval "want=\${HC_${CK//[!A-Za-z0-9]/_}:-}"
+sigv "$CACHE"; have=$REPLY
+case "$NL$ENABLED$NL" in *"${NL}com.beam.translation.doubanfm${NL}"*) EN=1;; *) EN=0;; esac
+if [ -n "$want" ] && [ "$want" = "$have" ] && [ "$EN" = 1 ]; then IDMAP_SKIPPED=$((IDMAP_SKIPPED+1)); else
+  idmap2 create --target-apk-path /vendor/priv-app/XgimiMusicPlayer_no_u3dRelease838/XgimiMusicPlayer_no_u3dRelease838.apk --overlay-apk-path "$OVERLAY" --idmap-path "$CACHE" --policy public --ignore-overlayable
+  chown system:system "$CACHE"
+  chmod 644 "$CACHE"
+  cache_put "idmap:$CACHE" "$OSIG" "$(stat -c %s:%Y:%d:%i "$CACHE")"
+  cmd overlay enable --user 0 com.beam.translation.doubanfm
   IDMAP_DONE=$((IDMAP_DONE+1))
 fi
 up; echo "t_ov_loop=$UPN"

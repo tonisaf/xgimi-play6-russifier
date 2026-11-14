@@ -16,8 +16,12 @@ lines=['#!/system/bin/sh','umask 022',f'D={q(D)}','RUN=$(cat /proc/sys/kernel/ra
  'finish() { code=$?; if [ "$(getprop vendor.xgimi.system.debug.cmd)" = "/system/bin/sh $D/apply.sh" ]; then setprop vendor.xgimi.system.debug.cmd ""; setprop vendor.xgimi.system.debugserver ""; fi; printf "%s %s\\n" "$RUN" "$code" > "$D/done"; chmod 644 "$D/done"; }',
  "trap finish EXIT",'exec > "$D/last.log" 2>&1','set -e',
  'echo "boot=$(cat /proc/sys/kernel/random/boot_id)"','id',
- 'test "$(getprop ro.build.fingerprint)" = '+q(m['fingerprint']),
- 'test "$(getprop ro.build.version.sdk)" = '+q(m['sdk']),
+ 'DEVICE_IDENTITY="$(getprop ro.build.fingerprint) $(getprop ro.build.version.sdk)"',
+ 'if [ "$DEVICE_IDENTITY" != '+q(m['fingerprint']+' '+m['sdk'])+' ]; then',
+ '  test -f "$D/device-identity" && test "$DEVICE_IDENTITY" = "$(cat "$D/device-identity")" || exit 11',
+ *['  test "$(sha256sum '+q(o['path'])+' | cut -d " " -f 1)" = '+q(o['sha256'])
+   for o in m['originals'].values()],
+ 'fi',
  'test "$(getprop persist.sys.locale)" = ru-RU',
  'test "$(getenforce)" = Permissive',
  'echo "start_uptime=$(cut -d \" \" -f 1 /proc/uptime) boot_completed=$(getprop sys.boot_completed)"',
@@ -208,7 +212,7 @@ skin_script='\n'.join(skin_lines)+'\n';(H/'skin.sh').write_text(skin_script,enco
 skin_digest=hashlib.sha256(skin_script.encode()).hexdigest()
 constants=H/'app/src/com/beam/russifier/boot/RestoreConfig.java'
 constants.write_text('package com.beam.russifier.boot;\nfinal class RestoreConfig {\n'
- 'static final String FINGERPRINT = '+json.dumps(m['fingerprint'])+';\n'
+ 'static final String DEVICE_IDENTITY = '+json.dumps(m['fingerprint']+' '+m['sdk'])+';\n'
  'static final String SCRIPT = '+json.dumps(D+'/apply.sh')+';\n'
  'static final String SHA256 = '+json.dumps(digest)+';\n'
  'static final String SKIN_SCRIPT = '+json.dumps(D+'/skin.sh')+';\n'

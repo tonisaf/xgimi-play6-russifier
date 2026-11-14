@@ -41,7 +41,10 @@ public final class RestoreService extends Service {
         try {
             final String script=skinOnly ? RestoreConfig.SKIN_SCRIPT : RestoreConfig.SCRIPT;
             final String expectedHash=skinOnly ? RestoreConfig.SKIN_SHA256 : RestoreConfig.SHA256;
-            if (!MainActivity.exec("/system/bin/getprop","ro.build.fingerprint").equals(RestoreConfig.FINGERPRINT))
+            String identity = MainActivity.exec("/system/bin/getprop", "ro.build.fingerprint") + " "
+                + MainActivity.exec("/system/bin/getprop", "ro.build.version.sdk");
+            if (!identity.equals(RestoreConfig.DEVICE_IDENTITY)
+                    && !identity.equals(MainActivity.read(RestoreConfig.DIRECTORY + "/device-identity")))
                 throw new IOException("Прошивка не поддерживается");
             if (!MainActivity.exec("/system/bin/getenforce").equals("Permissive")) throw new IOException("Системный доступ недоступен");
             MessageDigest digest=MessageDigest.getInstance("SHA-256");

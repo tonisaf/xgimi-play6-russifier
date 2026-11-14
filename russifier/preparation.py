@@ -1,7 +1,7 @@
 """Reversible preparation from the BEAM guide; never installs or replaces BEAM."""
 import argparse, json, re, time
 from pathlib import Path
-from installer import Installer, MANIFEST, BASE, FILES, q, save
+from installer import Installer, MANIFEST, BASE, FILES, q, save, skips_device_check
 
 ZONES = ['Europe/Moscow','Europe/Kaliningrad','Europe/Samara','Asia/Yekaterinburg',
          'Asia/Omsk','Asia/Novosibirsk','Asia/Krasnoyarsk','Asia/Irkutsk','Asia/Yakutsk',
@@ -10,13 +10,15 @@ ZONES = ['Europe/Moscow','Europe/Kaliningrad','Europe/Samara','Asia/Yekaterinbur
 SERVICES = {
  'com.xgimi.adservice':'Реклама', 'com.xgimi.datareporter':'Телеметрия',
  'com.xgimi.bugreportsender':'Отчёты об ошибках', 'com.xgimi.newappmarket':'Китайский магазин',
- 'com.xgimi.doubanfm':'Douban FM', 'com.xgimi.duertts':'Голосовой движок Baidu',
+ 'com.xgimi.duertts':'Голосовой движок Baidu',
  'com.xgimi.msgcenter':'Центр уведомлений', 'com.xgimi.payview':'Оплата',
  'com.xgimi.vcontrol':'Голосовое/телефонное управление XGIMI',
  'com.xgimi.xgimihilink':'Huawei HiLink', 'com.xgimi.xgimiiotserver':'Умный дом XGIMI',
 }
 IME = 'org.liskovsoft.androidtv.rukeyboard/com.liskovsoft.leankeyboard.ime.LeanbackImeService'
-GUARDED = {'com.sohu.inputmethod.sogou.tv':'Sogou', 'com.xgimi.home':'Штатный лаунчер',
+# XGIMI SounderModeService binds to Douban FM's SoundModeService.
+GUARDED = {'com.xgimi.doubanfm':'Режим колонки XGIMI',
+           'com.sohu.inputmethod.sogou.tv':'Sogou', 'com.xgimi.home':'Штатный лаунчер',
            'com.spocky.projengmenu':'Projectivy'}
 SETTINGS = {'locale':('prop','persist.sys.locale'), 'timezone':('prop','persist.sys.timezone'),
             'autoZone':('global','auto_time_zone'), 'ime':('secure','default_input_method'),
@@ -35,7 +37,9 @@ def identity(r):
     if ':' in r.serial: r.command('connect',r.serial)
     if r.command('get-state').stdout.strip()!='device': raise RuntimeError('ADB недоступен или не авторизован')
     props={key:r.shell('getprop '+key) for key in ('ro.build.fingerprint','ro.serialno')}
-    if props['ro.build.fingerprint']!=MANIFEST['fingerprint'] or not props['ro.serialno']:
+    if not all(props.values()) or (
+        not skips_device_check(r) and props['ro.build.fingerprint'] != MANIFEST['fingerprint']
+    ):
         raise RuntimeError('Неподдерживаемая прошивка или отсутствует идентификатор устройства')
     for item in MANIFEST['originals'].values():
         if r.shell('sha256sum '+q(item['path'])).split()[0]!=item['sha256']:
@@ -174,6 +178,8 @@ def main():
     parser.add_argument('--install-beam',action='store_true')
     parser.add_argument('--keyboard-apk',type=Path)
     parser.add_argument('--disable-launcher',action='append',default=[])
+    parser.add_argument('--skip-device-check', action='store_true',
+                        help='Пропустить сравнение модели и прошивки с комплектом')
     args=parser.parse_args();r=None
     try:
         r=Installer(args)
