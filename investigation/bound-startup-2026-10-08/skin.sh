@@ -1,6 +1,6 @@
 #!/system/bin/sh
 umask 022
-D=/data/local/beam-russifier-boot/releases/1.19.52-747e4486563a96ed
+D=/data/local/beam-russifier-boot/releases/1.19.53-6dedd2dcfac04a6f
 RUN=$(cat /proc/sys/kernel/random/uuid)
 finish() { code=$?; if [ "$(getprop vendor.xgimi.system.debug.cmd)" = "/system/bin/sh $D/skin.sh" ]; then setprop vendor.xgimi.system.debug.cmd ""; setprop vendor.xgimi.system.debugserver ""; fi; printf "%s %s\n" "$RUN" "$code" > "$D/done"; chmod 644 "$D/done"; }
 trap finish EXIT

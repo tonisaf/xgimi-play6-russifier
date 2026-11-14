@@ -1,7 +1,7 @@
 """Update an existing boot prototype; retain its immutable generation on failure."""
 from pathlib import Path
 import argparse,json,re,os
-from installer import BASE,Installer,MANIFEST,q,sha,save
+from installer import BASE,Installer,MANIFEST,q,sha,save,restore_speaker_package
 from boot_common import PACKAGE,validate_bundle,stage_generation
 
 def helper_hash(installer):
@@ -38,6 +38,8 @@ def recover(installer,log_directory):
     else: raise RuntimeError('Helper изменён другим способом; восстановление остановлено')
     restore_own_services(installer,[c for c in record['oldServices'] if c.startswith(PACKAGE+'/')])
     save(log_directory/'boot-update.json',record)
+    if record['status']=='committed':
+        restore_speaker_package(installer)
     print('Незавершённое обновление обработано:',record['status'])
 
 def register_update(installer,info):
@@ -131,6 +133,10 @@ def update(installer, bundle):
         if re.fullmatch(r'/data/local/tmp/beam-ru-[0-9a-f]{10}',installer.remote):
             installer.command('shell','rm -rf '+q(installer.remote),check=False)
         if restore_services: restore_own_services(installer,ours)
+    try:
+        restore_speaker_package(installer)
+    except RuntimeError as error:
+        raise RuntimeError('Русификатор обновлён, но проверка режима колонки не завершилась: '+str(error)) from error
     print('Helper обновлён; старое поколение сохранено. Журнал:',installer.logs)
 
 def main():

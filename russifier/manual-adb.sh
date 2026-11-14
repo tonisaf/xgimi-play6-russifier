@@ -102,6 +102,14 @@ echo "включённых пакетов перевода: $($A shell "cmd over
 step "4. Установка helper автозапуска"
 $A install -r "$KIT/boot-helper/boot-helper.apk" | tail -1
 
+disabled=$($A shell pm list packages -d --user 0 com.xgimi.doubanfm | tr -d '\r')
+if grep -qx 'package:com.xgimi.doubanfm' <<< "$disabled"; then
+  $A shell pm default-state --user 0 com.xgimi.doubanfm
+  enabled=$($A shell pm list packages -e --user 0 com.xgimi.doubanfm | tr -d '\r')
+  grep -qx 'package:com.xgimi.doubanfm' <<< "$enabled" || fail "не удалось восстановить Douban FM для режима колонки"
+  echo "Douban FM: восстановлен системный пакет для режима колонки."
+fi
+
 step "5. Перезагрузка проектора (правила памяти XGIMI читаются только при загрузке)"
 reboot_and_wait
 

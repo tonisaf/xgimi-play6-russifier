@@ -63,6 +63,18 @@ def skips_device_check(installer):
     return getattr(getattr(installer, 'args', None), 'skip_device_check', False)
 
 
+def restore_speaker_package(installer):
+    package = 'com.xgimi.doubanfm'
+    entry = 'package:' + package
+    disabled = 'pm list packages -d --user 0 ' + package
+    if entry not in installer.shell(disabled).splitlines():
+        return
+    installer.shell('pm default-state --user 0 ' + package)
+    if entry not in installer.shell('pm list packages -e --user 0 ' + package).splitlines():
+        raise RuntimeError('Не удалось вернуть штатное состояние Douban FM для режима колонки')
+    print('Douban FM: восстановлен системный пакет для режима колонки.', flush=True)
+
+
 class Installer:
     def __init__(self,args):
         self.args = args
@@ -440,6 +452,7 @@ class Installer:
             self.install_overlays()
             self.apply_data()
             self.restart()
+            restore_speaker_package(self)
             self.verify()
             self.state['status']='installed'
             save(self.logs/'state.json',self.state)

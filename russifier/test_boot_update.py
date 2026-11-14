@@ -10,6 +10,7 @@ class FakeDevice:
         self.helper_digest='old-helper';self.new_digest=helper_digest;self.mode=mode
         self.services='other/.Service:'+PACKAGE+'/.StartupBridge';self.events=[];self.offline=False
         self.changed=MANIFEST['overlays'][0];self.overlay_digest='old-overlay'
+        self.speaker_disabled=False
     def preflight(self): pass
     def overlay_states(self): return {i['package']:{'path':'/data/app/'+i['file'],'enabled':True,'state':'STATE_ENABLED'} for i in MANIFEST['overlays']}
     def shell(self,script,**kwargs):
@@ -18,6 +19,12 @@ class FakeDevice:
         if a[:2]==['getprop','ro.build.fingerprint']: return MANIFEST['fingerprint']
         if a[:2]==['getprop','ro.serialno']: return 'TEST'
         if a[:2]==['pm','path']: return 'package:/data/app/boot/base.apk'
+        if a[:3]==['pm','list','packages'] and a[-1]=='com.xgimi.doubanfm':
+            return 'package:com.xgimi.doubanfm' if ('-d' in a)==self.speaker_disabled else ''
+        if a==['pm','default-state','--user','0','com.xgimi.doubanfm']:
+            self.events.append(('restore-speaker',self.helper_digest))
+            self.speaker_disabled=False
+            return ''
         if a[0]=='sha256sum':
             if a[1]=='/data/app/boot/base.apk': return self.helper_digest+'  base.apk'
             name=Path(a[1]).name
@@ -41,6 +48,16 @@ class FakeDevice:
             else: self.overlay_digest=MANIFEST['files'][self.changed['file']]
 
 class BootUpdateTests(unittest.TestCase):
+    def test_update_restores_disabled_speaker_package_once_after_commit(self):
+        with tempfile.TemporaryDirectory() as directory:
+            device,bundle=self.fixture(directory,'success')
+            device.speaker_disabled=True
+            update(device,bundle)
+            self.assertFalse(device.speaker_disabled)
+            recover(device,device.logs)
+            self.assertEqual([event for event in device.events if event[0]=='restore-speaker'],
+                             [('restore-speaker',device.new_digest)])
+
     def fixture(self,directory,mode):
         base=Path(directory);bundle=base/'bundle';bundle.mkdir();logs=base/'logs';logs.mkdir()
         helper=bundle/'boot-helper.apk';helper.write_bytes(b'new-helper');digest=hashlib.sha256(helper.read_bytes()).hexdigest()
